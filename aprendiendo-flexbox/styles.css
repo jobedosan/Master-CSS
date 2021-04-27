@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+/* Para trabajar con flexbox se debe aplicar un display: flex a la caja que contiene los elementos que queremos organizar */
+
+#layout {
+    /* Esta es la propiedad que se aplica para trabajar con flexbox, hace lo mismo que el float left, a diferencia de que el contenedor si capta el tamaño de los elementos que contiene sin necesidad de un clearfix.
+    Entonces, al aplicar el display:flex los elementos contenidos se alinearán uno al lado del otro (flex solo actúa dentro de la caja de forma que no afecta al resto de elementos) */
+    display: flex;
+    /* Se prueba estableciendo un ancho automático pero el ancho automático de los elementos con la propiedad inline-flex es del 100%, por eso al poner la propiedad width: 100% el tamaño no se adapta a los elementos
+    que contiene */
+    width: auto;
+
+
+
+
+    border: 3px solid black;
+    padding: 5px;
+}
+
+#layout2 {
+    /* Con este display se colocan los elementos uno al lado del otro, pero adicionalmente, la caja que contiene los elementos a organizar, se adapta a los mismos, su ancho se adapta automáticamente a lo que 
+    contiene, incluso si agregamos más cajas, el contenedor con id layout2 se adapta al contenido */
+    display: inline-flex;
+    /* Se prueba estableciendo un ancho automático pero el ancho automático de los elementos con la propiedad inline-flex es del 100%, por eso al poner la propiedad width: 100% el tamaño no se adapta a los elementos
+    que contiene */
+    margin-top: 25px;
+    border: 3px solid black;
+    padding: 5px;
+}
+
+
+.caja {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    border: 4px solid #222;
+    margin: 10px;
+    background-color: gray;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.orange {
+    background-color: orange;
+}

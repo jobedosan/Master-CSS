@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Descripción de la página">
+    <meta name="viewport" content="width = device-width, user-scalable=no">
+    <title>Máster en CSS con Víctor Robles</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+
+<body>
+    <h1>Máster en CSS con Víctor Robles WEB</h1>
+    <h3>Hoy aprenderemos Flexbox, una nueva forma de organizar elementos y maquetar una web con CSS</h3>
+
+    <!-- Flexbox tiene una peculiaridad y es que nosotros podemos trabajar con flexbox pero tenemos que indicarle cuál va a ser la caja que contendrá los elementos de 
+        flexbox o que contendrá la layout de flexbox, es decir, que con flexbox no se puede seleccionar un solo elemento y trabajar flexbox con dicho elemento, por ejemplo,
+    no puedo seleccionar un h1, o el h3 solo y trabajar con flexbox. En realidad si se quiere organizar elementos y utilizar la layout flexible o el contenido flexible que 
+    nos da flexbox, debemos crear un div y meter dentro todos los elementos que queramos organizar o maquetar utilizando flexbox -->
+
+    <!-- Dentro de la siguiente section estarán los elementos que estaremos organizando con flexbox. Flexbox actuará en donde le indiquemos, en este caso, dentro de la section con id layout. En resumen, flexbox 
+        siempre va a actuar dentro de un div, dentro del cual deben estar los elementos que vamos a organizar o alinear, etc. -->
+
+    <!-- Las siguientes cajas serán organizadas con flexbox, es importante recordar que se debe elegir si queremos que los elementos se organicen horizontalmente o verticalmente, esto se hace cuando se define el
+        layout flexible o el display flex (con row se define que los elementos deben organizarse en fila y con column en columnas, es decir, horizontal o verticalmente respectivamente)-->
+
+    <!-- Con flexbox no hay necesitas de hacer un clearfix (limpiar los flotados) para que los elementos de abajo no se monten hacia arriba -->
+
+    <section id="layout">
+        <div class="caja red">
+            Primera caja
+        </div>
+
+        <div class="caja green">
+            Segunda caja caja
+        </div>
+
+        <div class="caja blue">
+            Tercera caja
+        </div>
+
+        <div class="caja orange">
+            Cuarta caja
+        </div>
+    </section>
+
+    <section id="layout2">
+        <div class="caja red">
+            Primera caja
+        </div>
+
+        <div class="caja green">
+            Segunda caja caja
+        </div>
+
+        <div class="caja blue">
+            Tercera caja
+        </div>
+
+        <div class="caja orange">
+            Cuarta caja
+        </div>
+    </section>
+
+    <!-- Se agregó este párrafo para comprobar que no se montará hacia arriba como pasa con los flotados -->
+    <p>
+        Hola soy Víctor Robles y este es el máster en CSS, el curso más completo de maquetación web que existe
+    </p>
+
+</body>
+
+</html>
