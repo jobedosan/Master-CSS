@@ -1,0 +1,804 @@
+/*FUENTES*/
+@font-face {
+    /*Con etso s eimporta la fuente, se pueden agregar varios src para que la página tenga otras opciones para cargar 
+    la fuente en caso de que alguna falle*/
+    font-family: "nevis";
+    /*Con esta propiedad se establece el nombre que tendrá la fuente que importemos*/
+    src: url("../CSS/fonts/nevis.eot");
+    /*Este es el primer formarto de fuente que se agrega, si falla pasará al siguiente*/
+    src: url("../CSS/fonts/nevis.eot?#iefix") format("embedded-opentype"),
+        /*En este sgeundo src se agregran varios url que 
+    son el resto de opciones para tratar de cargar la fuente, se agregó la que falló al comienzo agregando ?#iefix pegado
+    a la ruta del archivo, esto es una utilidad se usa para reparar el hecho de que el Internet Explorer no pueda cargar esa 
+    primera opción, se usa para Internet Explorer (versiones viejas) u otros navegadores antiguos, además para tratar de 
+    asegurar la carga se usa el valor format para indicar el formato de la fuente, no es necesario aprenderlas de memoria 
+    pues se consiguen por internet y con el tiempo pueden aprenderse, además es importante resaltar que el formato oet 
+    (embedded-opentype) solo es admitido por Internet Explorer, el ?#iefix se usa con este formato nada más*/
+
+        url("../CSS/fonts/nevis.woff") format("woff"),
+        /*Esta es la misma fuente pero en un archivo de otro formato y se 
+        señala el formato del archivo con el valor format*/
+        url("../CSS/fonts/nevis.ttf") format("truetype"),
+        /*Esta es la misma fuente pero en un archivo de otro formato y se 
+        señala el formato del archivo con el valor format*/
+        url("../CSS/fonts/nevis.svg") format("svg");
+    /*Esta es la misma fuente pero en un archivo de otro formato y se 
+        señala el formato del archivo con el valor format*/
+
+    /*En el segundo src que tiene varios url, se separa un url de otro con una coma (,) y al terminar de copiarlos todos 
+        se cierra con punto y coma (;)*/
+
+    /*También se puede indicar el grosor y estilo con que se procesará la fuente*/
+    font-weight: normal;
+    /*Con esto se indica el grosor con que se procesará la fuente*/
+    font-style: normal;
+    /*Con esto se indica el estilo con que se procesará la fuente*/
+}
+
+@font-face {
+    /*Se necesita otra fuente en la página, por lo que se hace el mismo procedimiento que con el primer @font-face (se omite el segundo src 
+    porque el formato de esta fuente no se acostumbra que presente problemas como las fuentes .eot con internet explorer,SIEMPRE ES BUENO PONER EL FORMATO)*/
+    font-family: "fajala";
+    /*Con esta propiedad se establece el nombre que tendrá la fuente que importemos*/
+    src: url("../CSS/fonts/FjallaOne-Regular.ttf") format("truetype");
+    font-weight: normal;
+    /*Con esto se indica el grosor con que se procesará la fuente*/
+    font-style: normal;
+    /*Con esto se indica el estilo con que se procesará la fuente*/
+}
+
+@font-face {
+    /*Con este @font-face se importó una fuente que hace que cada letra del teclado sea un ícono, así se agregó el ícono de documento al lado de
+    cada artículo, la fuente es SVG por lo que podemos modificar su color o tamaño sin que se distorsione*/
+    font-family: "icons";
+    /*Con esta propiedad se establece el nombre que tendrá la fuente que importemos*/
+    src: url("../CSS/fonts/websymbols-regular-webfont.svg#WebSymbolsRegular") format("svg"),
+        /*Aquí se agregó la primera ruta de la fuente y se indicó el
+    formato que es svg (se agregó al final de la ruta #WebSymbolsRegular para seleccionar el tipo de fuente que se extraerá del .svg, esto es porque
+    dentro del archivo hay elementos con ID, en este caso, se contiene un conjunto de íconos con ese ID, pero no es necesario colocarlo si el .svg solo
+    contiene esos íconos por ejemplo; es decir que ese # viene siendo un selector de ID, con el que se escoge qué es lo que se importará del .svg, es útil 
+    agregarlo cuando el .svg no contiene solo los íconos, sino también letras, por ejemplo, el ID puede ser cualquier cosa, es como en un html un atributo 
+    de una etiqueta dentro del .svg)*/
+        url("../CSS/fonts/websymbols-regular-webfont.eot");
+    /*Con esto agregó la misma fuente pero en otro formato*/
+    src: url("../CSS/fonts/websymbols-regular-webfont.eot?#iefix") format("embedded-opentype"),
+        /*En este segundo url está la misma fuente importada en 
+    distintos formatos, acá si se indica para el formato para cada ruta, y en el caso del formato .eot se agregó el ?#iefix para evitar problemas con 
+    internet explorer*/
+        url("../CSS/fonts/websymbols-regular-webfont.woff") format("woff"),
+        /*Esta es la misma fuente pero en un archivo de otro formato y se 
+        señala el formato del archivo con el valor format*/
+
+        url("../CSS/fonts/websymbols-regular-webfont.ttf") format("truetype");
+    /*Esta es la misma fuente pero en un archivo de otro formato y se 
+        señala el formato del archivo con el valor format*/
+    font-weight: normal;
+    /*Con esto se indica el grosor con que se procesará la fuente*/
+    font-style: normal;
+    /*Con esto se indica el estilo con que se procesará la fuente*/
+}
+
+/*ESTILOS GENERALES*/
+
+* {
+    /*Con esta regla se eliminaron los márgenes y paddings de todos los elementos*/
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-image: url(../img/paven.png);
+    /*Con esto se agregó un patrón de fondo la 
+    página*/
+}
+
+a {
+    /*Con esta regla CSS se dio estilo a todos los enlaces*/
+    color: #529125;
+    /*Con esta propiedad se cambió el color de los enlaces*/
+    text-decoration: none;
+    /*Con esta propiedad se eliminaron las decoraciones de los enlaces*/
+}
+
+a:visited {
+    /*Con esta regla CSS se estableció el estilo que tendrán los enlaces cuando ya hayan sido visitados*/
+    color: #529125;
+    /*Con esta propiedad se estableció el color de los enlaces luego de haber sido visitados*/
+}
+
+a:hover {
+    /*Con esta regla CSS se estableció el estilo que tendrán los enlaces cuando se pase el mouse sobre ellos*/
+    color: #285616;
+    /*Con esta propiedad se estableció el color al que cambiarán los enlaces cuando se pase el mouse sobre ellos*/
+}
+
+.red {
+    /*Se creó esta clase para aplicar unos colores a los h3 que dicen aula virtual*/
+    color: #9b2422 !important;
+    /*Con esta propiedad se estableció el color, pero s etuvo que agregar el !important para que se aplique el color, puesto
+    que más adelante hay reglas CSS más específicas*/
+}
+
+.blue {
+    /*Se creó esta clase para aplicar unos colores a los h3 que dicen aula virtual*/
+    color: #0c73f2 !important;
+    /*Con esta propiedad se estableció el color, pero se tuvo que agregar el !important para que se aplique el color, puesto
+    que más adelante hay reglas CSS más específicas*/
+}
+
+.orange {
+    /*Esta regla CSS con esta clase se creó para aplicar un color naranja a uno de los títulos de las secciones*/
+    color: #d69d2a !important;
+    /*Con esta propiedad se estableció un color naranja para uno de los títulos de las secciones, se agregó el !important
+    porque ya existe otra regla CSS que es más específica, entonces de esa forma se toma en cuenta esta regla*/
+}
+
+.icon {
+    /*Con esta regla CSS se aplicaron estilos a un span que se hizo para agregar un ícono al lado de cada artículo*/
+    font-family: "icons";
+    /*Con esta propiedad se estableció una fuente que hace que cada letra del teclado sea un ícono*/
+    float: left;
+    /*Se agregó esta propiedad para hacer que el texto se coloque al lado del ícono y no por debajo (Se coloca por debajo porque el
+    span se copió fuera del párrafo, pero copiandolo dentro del párrafo se obtiene el mismo resultado)*/
+    margin-right: 5px;
+    /*Con esta propiedad se agregó un margen derecho de 5px al ícono, separandolo un poco del tetxo del artículo*/
+    margin-top: -2px;
+    /*Con esta propiedad se agregó un margen superior negativo, haciendo que el ícono se mueva un poco hacia arriba y que el texto
+    de la segunda línea del artículo se ajuste mejor (la segunda línea termina de desplazarse a la izquierda ya que al mover el ícono esto se permite)*/
+}
+
+.clearfix {
+    float: none;
+    clear: both;
+}
+
+/*FORMULARIOS*/
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="text"],
+select {
+    /*Con esta regla se seleccionaron los distintos campos en que el usuario puede escribir, se usaron selectores de atributo y se agruparon (el
+    select creo que está de más porque no veo ningún select en el código)*/
+    border: 1px solid #c9c9c9;
+    /*Con esta propiedad se aplicó un borde solido de 1px de color gris*/
+    box-shadow: 0px 0px 2px #ccc inset;
+    /*Con esta propiedad se agregó una sombra a las cajas en donde escribe el usuario*/
+    background-color: white;
+    /*Con esta propiedad se agregó un fondo de color blanco a las cajas en donde escribe el usuario*/
+    padding: 1px;
+    /*Con esta propiedad se agregó un padding de 1px a todos los lados de las cajas en que escribe el usuario*/
+    padding-top: 2px;
+    /*Con esta propiedad se agregó un padding superior de 2px a todos los lados de las cajas en que escribe el usuario*/
+    padding-bottom: 2px;
+    /*Con esta propiedad se agregó un padding inferior de 2px a todos los lados de las cajas en que escribe el usuario*/
+    color: gray;
+    /*Con esta propiedad se estableció un color gris para el texto escrito por el usuario en las cajas del formulario*/
+    transition: all 300ms;
+    /*Con esta propiedad se agregó una pequeña transición de 300ms para cuando las cajas cambien sus estilos por una pseudoclase*/
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus,
+select:focus {
+    /*Con esta regla CSS se cambian los estilos de las cajas de texto en que escribe el usuario cuando se les haga focus (estén activas para 
+    escribir)*/
+    border: 1px solid #70b231;
+    /*Con esta propiedad se cambia el borde de las cajas de texto a verde cuando se les haga focus*/
+    color: black;
+    /*Con esta propiedad se cambia el color del texto que escriba el usuario en las cajas de texto mientras se les haga focus*/
+    outline: none;
+    /*Esta propiedad se tuvo que agregar porque en chrome al hacer focus, aunque si se cambia al borde verde, también se dibuja un borde
+    de color negro, haciendo que el cambio sea imperceptible, es recomendable usar esta propiedad ya que así se cambiará el borde a verde y se eliminará
+    la línea negra*/
+}
+
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button {
+    /*Con esta regla CSS se aplican estilos a los botones del formulario*/
+    display: block;
+    /*Con esta propiedad se cambia el comportamiento de los botones para que actúen como elementos de bloque y poder manipularlos como queramos*/
+    border-radius: 2px;
+    /*Con esta propiedad se redondearon los bordes de los botones*/
+    border: 1px solid green;
+    /*Con esta propiedad se puso un borde sólido de 1px de color verde a los botones*/
+    width: 60px;
+    /*Con esta propiedad se estableció un ancho de 60px a los botones*/
+    padding: 3px;
+    /*Con esta propiedad se agregó un padding de 3px por todos lados a los botones*/
+    color: white;
+    /*Con esta propiedad se cambio el color de la letra de los botones a blanco*/
+    background-color: #70b231;
+    /*Con esta propiedad se cambió el color de fondo de los botones a verde (los botones en el ejemplo tienen como un
+    degradado, no se hizo aquí pero Victor indicó que eso se hace con herramientas que producen el CSS necesario para pegarlo aquí, también hay propieda-
+    des para hacerlo por nuestra cuenta pero debe estudiarse)*/
+    cursor: pointer;
+    /*Con esta propiedad se indica que el cursos cambiará a una mano para hacer clic*/
+    outline: none;
+    /*Se agregó porque se agrega automáticamente un borde negro junto al borde verde que queremos, esto elimina el borde negro*/
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+button:hover {
+    /*Con esta regla CSS se establecen los estuilos que cambiarán al hacer pasar el cursos sobre los botones*/
+    box-shadow: 0px 0px 2px gray;
+    /*Con esta propiedad se establece que se agregará una sombra gris a los botones cuando se pase el cursos por encima*/
+}
+
+input[type="submit"]:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+button:active {
+    /*Con esta regla CSS se establecen los estilos que cambiarán cuando se haga clic en los botones del formulario*/
+    box-shadow: 0px 0px 3px gray inset;
+    /*Con esto se agrega una sombra interna a los botones cuando se les haga clic*/
+    text-shadow: 0px 0px 1px #ccc;
+    /*Con esta propiedad se establece que el texto de los botones tendrá una sombra al hacer clic en los botones*/
+    /*Aquí iba  a agregar un outline porque veía que estaba el borde negro, pero al aplicarlo a los botones sin :active ya es suficiente pues la propie-
+    dad se mantiene*/
+    /*Estos textos hacen que el letrero del botón parezca brillar como un bombillo*/
+}
+
+/*CABECERA*/
+
+#header {
+    min-width: 1024px;
+    /*Este es el ancho mínimo que tendrpa el header*/
+    width: 100%;
+    /*Se establece que debe abarcar el 100% de ancho del body*/
+    height: 250px;
+    /*Se puso un ancho de 250px*/
+    margin: 0px auto;
+    /*Márgenes superior e inferior a 0px, y márgenes laterales auto para
+    centrar la cabecera*/
+}
+
+#header a {
+    text-decoration: none;
+    /*Con esto se eliminó el adorno del enlace que es como un subra-
+    yado*/
+}
+
+#header #logotipo {
+    /*Estos son los estilos a aplicar a la caja que contiene el logotipo*/
+    width: 770px;
+    /*Tiene un ancho de 770px*/
+    margin: 0px auto;
+    /*Se centró usando márgenes laterales auto y superior e inferior están
+    en cero*/
+    padding-top: 20px;
+    /*Tiene un padding superior de 20px*/
+}
+
+#header #logotipo img {
+    /*Estos son los estilos del logotipo como tal*/
+    display: block;
+    /*Se agregó esto para que actúe como un bloque*/
+    text-align: center;
+    /*Con esto se busca centrar la imagen, pero no se aplica, probando aprendí que si se quiere centrar
+    una imagen que está en una caja, debes usar el text-align en el contenedor y no en la imagen como tal. Luego se agregó 
+    un margin con el que si se centra el logotipo, pero el margin funciona porque se le puso un display: block, si no, no
+    funcionaría*/
+    margin: 0px auto;
+    /*También se usa esto para centrarla pues no basta con el text-align*/
+    width: 140px;
+    /*Se le puso un ancho de 140px*/
+}
+
+#header h1 {
+    /*Estos son los estilos del texto que dice Máste CSS*/
+    text-align: center;
+    /*Con esto se centró*/
+    font-size: 40px;
+    /*Se cambió el tamaño de la letra a 40px*/
+    font-family: "nevis";
+    text-transform: uppercase;
+    /*Esto hace que el letrero sea en mayúscula aunque no se haya escrito así en el html*/
+    letter-spacing: 4px;
+    /*Esto hace que las letras del h1 estén más separadas*/
+    margin-top: 10px;
+    /*Esto hace que el h1 se aleje un poco más del logotipo, pues es un margen superior*/
+    text-shadow: 0px 2px 1px #333333;
+    /*Esto agrega una sombra al texto del h1, desplandola 0px en el eje X, 2px hacia 
+    abajo en el eje Y, y tiene un pixel de difuminación*/
+    transition: all 300ms;
+    /*Esto hace que haya una transición de 300 ms entre los estilos de esta regla CSS y los que se 
+    aplican al pasar el mouse sobre el h1*/
+}
+
+#header h1:hover {
+    /*En esta regla se indican los estilos que se aplicarán cuando se pase el mouse sobre el h1*/
+    text-shadow: 0px 2px 1px #333333,
+        /*Se agregaron 2 sombras, la primera es la original, se agregó para que no se 
+    elimine*/
+        0px 0px 4px #70b231;
+    /*Se agregó esta sombra del mismo color del letrero además de la original, esta no
+                tiene desplazamiento en los ejes X o Y, solo tiene un difuminado de 4px, esto hace que la sombra se vea por
+                todos los lados del texto, pero muy poco, por lo que hace que el letrero parezca encenderse*/
+}
+
+#header h1 a {
+    color: #70b231;
+    /*Se agrega el color al enlace directamente porque si se aplica al h1 que lo contiene, no tedrá 
+    efecto*/
+}
+
+/*Barra de navegación*/
+
+#nav {
+    /*min-width: 1250px;*/
+    /*Con esto se indica cual es el ancho mínimo que queremos que ocupe el menú, pero no tiene
+    sentido porner esto si se usa un width = 100%*/
+    width: 100%;
+    /*Con esto se establece que la caja nav abarcará el 100% del ancho del body*/
+    background-color: #333333;
+    /*Con esto se puso un color de fondo gris a la ca*/
+    color: white;
+    /*Victor agregó esto pero no afecta en nada al texto, creo que es bueno ir copiando el código y cuando
+    funcione algo se ve si se copió la misma propiedad a otro elemento relacionado y no funciona, el color de texto debe apli-
+    carse a los enlaces para que funcione*/
+    height: 40px;
+    /*Se puso una altura de 40px a la caja nav*/
+    font-family: sans-serif, Helvetica, Arial;
+    /*Esto establece el tipo de fuente que se aplicará a los elementos contenidos*/
+    font-size: 14px;
+    /*Con esto se estableció el tamaño de la letra*/
+    box-shadow: 0px 0px 2px grey;
+    /*Con esto se agregó una sombra a la barra de navegación*/
+}
+
+#nav ul {
+    list-style: none;
+    /*Con esto se aplicaron estilos a la lista en general*/
+    text-decoration: none;
+    /*Se supone que esto quita la decoración d elos enlaces pero no sirve y está de más, esta propiedad
+    debe aplicarse a los enlaces*/
+    margin: 0 auto;
+    /*Con esto se centra el la lista*/
+    width: 1032px;
+    /*Victor dio un valor pero se tuvo que modificar para centrar bien los letreros, esto se puede hacer 
+    midiendo las cosas con la regla de px*/
+}
+
+#nav>ul>li {
+    line-height: 40px;
+    /*Con esto se centraron los textos verticalmente, se puede aplicar directamente a los enlaces en lugar
+    de los li*/
+    float: left;
+    /*Con esto se flotaron todos los elementos de la lista a la izquierda, haciendo que se pongan uno al lado del
+    otro*/
+    border-right: 1px solid gray;
+    /*Con esto se agregó un borde gris claro a la derecha de cada li para que sirva como se-
+    parador, se puede aplicar a los enlaces en lugar de a los li e igual funcionará*/
+    transition: all 300ms;
+}
+
+#nav>ul>li a {
+    /*Estos son los estilos de los enlaces*/
+    color: white;
+    /*Con esto si se dio color al texto, así es como debe hacerse y como funciona, antes se trató de aplicar
+    color al texto pero no funcionó (se aplicó a la caja nav)*/
+    text-decoration: none;
+    /* Con esto si se eliminaron los adornos de los enlaces, también se trató de aplicar antes en el ul
+    pero no funcionó*/
+    display: block;
+    /*Esto hace que los objetos actúen como bloques, abarcando todo el espacio de la caja que los contiene*/
+    padding-left: 20px;
+    /*Con esto se agregaron 20px de padding izquierdo*/
+    padding-right: 20px;
+    /*Con esto se agregaron 20px de padding derecho*/
+}
+
+#nav>ul>li>a:first-child {
+    /*Con esto se agregó un margen izquierdo a todos los enlaces que son hijos de los li
+    que a su vez son hijo directo de ul, que es hijo directo de el elemento con id nav. Es decir que se suma ese borde a los 
+    separadores que ya se habían puesto anteriormente; quedando los bordes de los extremos más finos que los que separan a 
+    los enlaces*/
+    border-left: 1px solid gray;
+    /*Con esto se agregó un margen izquierdo de 1px a los enlaces en general pues todos son 
+    primeros hijos de li*/
+}
+
+#nav>ul>li:hover {
+    /*Esta regla se agregó para que los estilos de los li cambien cuando se pase el mouse por encima de 
+    ellos*/
+    background-color: #70b231;
+    /*Al pasar el mouse por encima de los li se cambiaran a este color de fondo*/
+    box-shadow: 0px 0px 4px green inset;
+    /*Al pasar el mouse por encima de los li, además del cambio de color de fondo,
+    aparecerá una sombra interna de un color verde más oscuro, esto hace parecer que el botón se alumbra*/
+}
+
+/*MENÚ DESPLEGABLE*/
+
+#nav>ul>li>ul {
+    /*Con esta regla se aplicaron los estilos al ul qué es hijo directo de li que a su vez es hijo de ul, que
+    es hijo del elemento con el id nav*/
+    display: none;
+    /*Al aparecer los elementos todos se movió, por lo que se procede a ocultarlos con esta propiedad*/
+    position: absolute;
+    /*Se le pone esta propiedad para que la lista del menús desplegable no afecte el flujo de la página,
+    así que cuando aparece ya mueve el resto de elementos*/
+    width: 160px;
+    /*Esto establece el ancho de la ul del menú desplegable*/
+    box-shadow: 0px 2px 2px gray;
+    /*Con esto se agregó una pequeña sombra a la caja del menú desplegable*/
+    z-index: 1;
+    /*Esto se agregó para que se vea por encima de cualquier elemento al desplegarse*/
+}
+
+#nav>ul>li:hover>ul {
+    /*Con esta regla se establece que el ul del menú desplegable se hará visible cuando se pase el
+    mouse sobre el li que es hijo directo del ul que a su vez es hijo directo del elemento con el id nav */
+    display: block;
+    /*Con esto se hace visible al menúr desplegable cuando se cumple la condición del hover que se indica en
+    el selector*/
+}
+
+#nav>ul>li:hover>ul>li {
+    /*Con esta regla se establecen los estilos par alos li del sub menú, hay un hover que se 
+    puede eliminar y funcionará igual pues se agregan los estilos permanentemente, mientras que con el hover se aplican los
+    estilos al tener el mouse sobre el li, el selector indica que se aplicaran los estilos al li que es hijo del ul que a 
+    su vez es hijo del li (con la pseudoclase hover) que es hijo del ul que es hijo del elemento con el id nav*/
+    background-color: #f2f1f0;
+    /*Con esto se aplicó un fondo de color blanco*/
+    border-bottom: 1px solid #d6d6d6;
+    /*Con esto se aplicó un borde inferior a los li, funcionando como separador*/
+    line-height: 25px;
+    /*Con esto se centraron las letras verticalmente*/
+    font-size: 13px;
+    /*Se estableció este tamaño de letra*/
+    color: #666666;
+    /*Con esto se trató de dar color al texto de los li del menú desplegable pero no funciona y está de más,
+    en realidad debe aplicarse el color a los enlaces como tal (es la siguiente regla CSS)*/
+    transition: all 300ms;
+    /*Esta es una transición para cuando se pase el mouse sobre los elementos del menú desplegable y
+    cambien los estilos*/
+    padding: 8px;
+    /*Este es un margen interior de 8px (Esto creo que va en los enlaces como tal y seguramente depsués se 
+    cambie, porque hace que no toda la caja del ul funcione como enlace)*/
+}
+
+#nav>ul>li:hover>ul>li a {
+    /*Aquí pasó algo parecido a lo del hover de arriba, el que se indicó que no era necesario;
+    el selector indica que se aplicará este color de letra a los enlaces que son hijos del li, que son hijos del ul, que 
+    hijos del li (con la psudoclase hover), que a su vez son hijos del ul que es hijo del elemento con el id nav. El estilo
+    se aplicará cuando se pase el mouse por encima de la barra de navegación en donde se indica, pero quitando el hover igual 
+    se aplicará el color permanentemente sin necesidad del hover (aunque no se verá en realidad pues el menú desplegable
+    está oculto)*/
+    color: #666666;
+}
+
+#nav>ul>li:hover>ul>li:hover {
+    /*Con esta regla se establecieron los estilos que se aplicarán a los elementos del
+    menú cuando esté desplegado y se pase el mouse sobre ellos*/
+    box-shadow: 0px 0px 6px #ccc inset;
+    /*Esto no se ve, par averlo hay que quitar la siguiente propiedad, pero si se deja
+    solo, se ve una opción posible para hacer saber al usuario que ese es el elemento del menú que está seleccionando*/
+    background-color: #ccc;
+    /*Esto si se ve, y es un fondo más oscuro que se aplicará cuando se pase el mouse sobre un 
+    elemento del menú desplegable, cumple la misma función, es para hacer saber al usuario que está seleccionando un elemento
+    del menú desplegable*/
+}
+
+/*CONTENIDO*/
+
+
+#content {
+    /*Con esta regla se aplican estilos a la caja que contiene todo el contenido central de la página*/
+    font-family: sans-serif, Arial, Helvetica;
+    /*Con esta propiedad se cambió el tipo de letra que se verá en todas
+    las secciones, incluyendo el letrero de [ver histórico de noticias], puesto que se encuentra dentro del elemento con
+    #content*/
+    width: 1250px;
+    /*Se le estableció un ancho de 1250px*/
+    min-width: 1100px;
+    /*Se le estableció como ancho mínimo 1100px*/
+    margin: 0 auto;
+    /*Con esto se centró la caja*/
+}
+
+/*BARRA LATERAL*/
+
+#aside,
+#frase
+
+/*Este segundo selector se agregó posteriormente puesto que otro elemento comparte los mismo estilos que el elemento con el id #aside*/
+    {
+    /*Con esta 
+    regla se dan estilos a la caja que contiene a la barra lateral*/
+    width: 200px;
+    /*Con esta propiedad se dio un ancho de 200px a la caja que contiene la barra lateral*/
+    float: left;
+    /*Con esta propiedad se flotó la caja que contiene la barra lateral a la izquierda*/
+    margin: 30px;
+    /*/*Con esta propiedad se agregó un marge de 30px por todos lados*/
+    background-color: white;
+    /*Con esta propiedad se agregó un color de fondo blanco a la caja contenedora de la barra 
+    lateral*/
+    border: 1px solid #ccc;
+    /*/*Con esta propiedad se agregó un borde gris de 1px a la caja contenedora de la barra
+    lateral*/
+    box-shadow: 0px 2px 2px #ccc;
+    /*/*Con esta propiedad se agregó una sombra gris a la caj contenedora de la barra
+    lateral*/
+    font-family: sans-serif, Arial, Helvetica;
+    /*Con esta propiedad se cambió la fuente de la caja contenedora de la barra 
+    lateral*/
+}
+
+#frase {
+    /*Con esta regla se agregaron otros estilos adicionales al elemento con el id #frases*/
+    /*clear: both;*/
+    /*Con esto se hace que la frase del día quede debajo del aside (me pareció extraño que se agregue clear a ambos elementos, pero funciona;
+    agregando clear al elemento con el id #frase solamente, se consigue lo mismo) IMPORTANTE!!! luego se se comentó este float porque hace que el elemento
+    con el ID frase se coloque mucho más abajo de donde se desea*/
+    padding: 10px;
+    width: 180px
+        /*Se modificó el ancho a 180px porque con el padding que se agregó, se agregaó por todos los lados del elemento, 10px por la izquierda, 
+    por la derecha, por arriba y por abajo; esto hizo que el elemento sea más ancho que el aside del que debería parecer que forma parte, restando los 
+    20px de padding (10px por izquierda y 10px por derecha) el ancho queda en 180px*/
+    ;
+    font-size: 14px;
+    /*Con esta propiedad se cambió el tamaño de la letra del elemento con el id #frases*/
+    font-family: sans-serif;
+    /*Con este elemento se cambió el tipo de letra que tiene el elemento*/
+}
+
+#aside .widget {
+    /*Con esta regla se aplican los estilos a las cajas dentro de la barra lateral (son 4)*/
+    display: block;
+    /*/*Con esta propiedad se hace que actúen como bloques (al quitar esta propiedad no veo ningún cambio así
+    que creo que está de más. No afecta a otras propiedades)*/
+    width: 180px;
+    /*Con esta propiedad se se estableció un ancho de 180px*/
+    margin: 5px auto;
+    /*Con esta propiedad se buscó centrar el contenido de las cajas de la barra lateral, sin embargo no hace 
+    ningún cambio, ya está centrada la caja por los paddings, aunque si se presenta el margen superior e inferior de 5px*/
+    padding: 8px;
+    /*Con esta propiedad se agregó un margen interior de 8px*/
+    padding-left: 10px;
+    /*Con esta propiedad se agregó un margen interior izquierdo de 10px*/
+    padding-right: 10px;
+    /*Con esta propiedad se* agregó un margen interior derecho de 10px/
+    font-size: 14px; /*Con esta propiedad se estableció un tamaño de letra de 14px*/
+    border-bottom: 1px dashed #333333;
+    /*Con esta propiedad se agregó un borde inferior a las cajas de la barra lateral; 
+    este borde funciona como separador entre las cajas y no es solid como los que se han hecho hasta ahora, este es dashed
+    (con guiones)*/
+}
+
+#aside .widget:last-child {
+    /*Con esta regla CSS se agrega un margen inferior al último hijo (con la clase widget) del elemento
+    con el id aside*/
+    margin-bottom: 20px;
+    /*Con esta propiedad se aplico un margin bottom de 20px*/
+}
+
+#aside h3 {
+    /*Con esta regla CSS se aplican los estilos a todos los h3 del formulario*/
+    display: block;
+    /*El h3 ya tiene display block por ser un elemento de bloque, esta propiedad la puso Victor pero está de
+    sobra, se agregó pensando en poder manipular del h3 como quisieramos*/
+    color: #333333;
+    /*Con esta propiedad se cambió el color del texto*/
+    width: 100%;
+    /*Con esto se establece que el ancho de los h3 sean del 100%, es decir, que abarcarán el 100% del ancho de
+    su contenedor*/
+    text-align: center;
+    /*Con esta propiedad se centraron los h3*/
+    padding-top: 2px;
+    /*Con esto se agregó un padding superior de 2px*/
+    padding-bottom: 2px;
+    /*Con esto se agregó un paddin inferior de 2px*/
+    background-color: #f2f3f2;
+    /*Con esta propiedad se aplicó un color de fondo*/
+    border: 1px solid #ccc;
+    /*Con esta propiedad se aplicó un borde de solido de un pixel de un color gris (El borde está
+    por todos lados)*/
+    border-left: none;
+    /*Con esta propiedad y este valor se quitó el borde del lado izquierdo*/
+    border-right: none;
+    /*Con esta propiedad y este valor se quitó el borde del lado derecho*/
+    margin-bottom: 15px;
+    /*Con esta propiedad se agregó un margen inferor de 15px a los h3 dentro del aside*/
+}
+
+/*FORMULARIOS BARRA LATERAL*/
+
+#aside div label,
+#aside div input[type="text"],
+#aside div input[type="email"],
+#aside div input[type="password"],
+#aside div a {
+    /*Con estos selectores se aplican los estilos a los inputs del formulario, a los títulos de los inputs y a los enlaces que se encuentran 
+    dentro de los divs que a su vez son hijos del elemento con el id aside*/
+    display: block;
+    /*Con esta propiedad se hace que todos los elementos actúen como un elemento de bloque, para a´si poder manipularlos como queramos*/
+    width: 95%;
+    /*Con esta propiedad se establece que los elementos seleccionados abarcarán el 95% del ancho de su contenedor*/
+    margin-top: 2px;
+    /*Con esta propiedad se agregó un margen superior de 2px a los inputs y sus nombres*/
+    margin-bottom: 2px;
+    /*Con esta propiedad se agregó un margen inferior de 2px a los inputs y sus nombres*/
+}
+
+#aside div input[type="button"],
+#aside div input[type="submit"],
+#aside div button {
+    /*Con esta regla CSS se aplicaorn estilos a los botones del formulario*/
+    margin-top: 5px;
+    /*Con esta propiedad se agregó un margen superior de 5px a los botones del formulario*/
+    margin-bottom: 10px;
+    /*Con esta propiedad se agregó un margen inferior de 10px a los botones del formulario*/
+}
+
+#aside input,
+#aside label {
+    /*Con esta regla CSS se centraron los inputs y letreros de los inputs e el formulario*/
+    margin: 0 auto;
+    /*Con esto se centraron los inputs*/
+    text-align: center;
+    /*COn esto se centraron los nombres de los inputs*/
+}
+
+#aside li {
+    /*Con esta regla CSS se aplicaorn estilos a los links que están al final del aside*/
+    margin-top: 8px;
+    /*Con esto se agregó un margen superior de 8px a los links al final del aside*/
+    margin-bottom: 5px;
+    /*Con esto se agregó un margen inferior de 5px a los links al final del aside*/
+    margin-left: 20px;
+    /*Con esto se agregó un margen izquierdo de 20px a los links al final del aside*/
+    list-style: square;
+    /*Los links se copiaron en una lista, con esta propiedad se cambiaron las viñetas de círculos a cuadrados*/
+}
+
+/*SECCIONES*/
+
+#sections {
+    /*Con esta regla CSS se aplican estilos a la caja que contiene las secciones (llegando a afectar incluso a las secciones como tal, como sucede
+    con la propiedad font-family)*/
+    float: right;
+    /*Con esta propiedad se flotó la caja contenedora de las secciones a la derecha del aside (Se puede hacer con el valor left pero
+    se hizo con right para que quede más separado)*/
+    width: 75%;
+    /*Con esta propiedad se establece que el ancho de la caja contenedora de secciones debe abarcar el 75% del body*/
+    font-family: sans-serif, Arial, Helvetica;
+    /*Con esta propiedad se estableció la fuente a utilizar en las secciones*/
+    margin-right: 20px;
+    /*Con esta propiedad se aplicó un margen derecho de 20px a la caja que contiene las secciones*/
+}
+
+#sections .titulo {
+    /*Con esta reglas CSS se aplican los estilos a los encabezados de las secciones*/
+    font-family: "fajala";
+    /*Con esta propiedad se cambió la fuente por una importada*/
+    font-size: 24px;
+    /*Con esta propiedad se cambió el tamaño de la letra*/
+    font-weight: normal;
+    /*Con esta propiedad se aplicó un grosor normal a la letra (se había agregado en el @font-face
+    pero no hizo efecto, al agregarse de nuevo aquí se ve el cambio)*/
+    letter-spacing: 1px;
+    /*Con esta propiedad se agregó 1px de espaciado entre las letras*/
+    text-align: center;
+    /*Con esta propiedad se centró el texto*/
+    margin-top: -20px;
+    /*Con esta propiedad se agregó un margen superior negativo de -20px*/
+    padding-top: 20px;
+    /*Con esta propiedad se agregó un padding superior de 20px*/
+    padding-bottom: 20px;
+    /*Con esta propiedad se agregó un padding inferior de 20px*/
+    border-bottom: 1px solid #ccc;
+    /*Con esta propiedad se agregó un borde inferior solido de 1px, se ve como un 
+    subrayado*/
+}
+
+#sections section {
+    /*Con esta regla CSS se aplicaorn los estilos a las cajas de las secciones*/
+    margin-top: 30px;
+    /*Con esta propiedad se aplicó un margen superior de 30px que hace que las cajas se separen*/
+    background-color: white;
+    /*Con esta propiedad se estableció un fondo blanco para las cajas de las secciones*/
+    padding: 20px;
+    /*Con esta propiedad se agregó un padding de 20px por todos los lados de las cajas de secciones*/
+    border: 1px solid #ccc;
+    /*Con esta propiedad se agregó un borde solid de 1px a las cajas de las secciones*/
+    box-shadow: 0px 0px 4px #c9c9c9;
+    /*Con esta propiedad se agregó un sombreado a las cajas de las secciones*/
+    color: #333;
+    /*Con esta propiedad se estableció el color par ala letra de las secciones*/
+    font-size: 16px;
+    /*Con esta propiedad se cambió el tamaño de la letra en las secciones*/
+    overflow: hidden;
+    /*Con esto se establece que si hay algún contenido que sobresalga de las cajas de contenido, se 
+    ocultará*/
+}
+
+#sections #article {
+    /*Con esta regla CSS se aplicaron estilos a los articulos*/
+    margin: 10px;
+    /*Con esta propiedad se aplicó un margen pde 10px por todos los lados*/
+    margin-top: 20px;
+    /*Con esta propiedad se cambió el margen superior a 20px*/
+    margin-bottom: 20px;
+    /*Con esta propiedad se cambió el margen inferior a 20px*/
+}
+
+#sections .date {
+    /*Con esta reglas CSS se aplicaorn estilos a las fechas colocadas en los artículos, para que no resalten
+    tanto como el texto del artículo*/
+    color: gray;
+    /*Con esta propiedad se cambió el color de las fechas a gris*/
+    font-size: 14px;
+    /*Con esta propiedad se cambió el tamaño de las fechas a uno inferior*/
+}
+
+#sections .stickerOne,
+#sections .stickerTwo {
+    /*Con esta regla CSS se aplicaron estilos a los stickers que son adornos para las secciones*/
+    position: absolute;
+    /*Con esta propiedad se sacaron del flujo de la página a los stickers y se puede posicionar como
+    se desee*/
+    margin-top: -38px;
+    /*Con esta propiedad se aplicó un margen superior negativo que hace que se suban los stickers*/
+    z-index: 0;
+    /*Con esto se establece sobre qué se mostrarán los stickers, por ejemplo que no se muestre sobre el menú
+    desplegable cuando se despliegue*/
+}
+
+#sections .stickerTwo {
+    /*Con esta regla CSS se aplicó estilo a uno solo de los stickers para separarlos, porque se 
+    juntaron al aplicar el position:absolute*/
+    margin-left: 860px;
+    /*Con esto se posicionó uno de los stickers más a la derecha, usando un margen izquierdo*/
+}
+
+#history {
+    /*Con esta regla CSS se aplicaorn estilos al letrero que dice [ver histórico de noticias]*/
+    float: right;
+    /*Con esta propiedad se flotó a la derecha*/
+    margin-top: 20px;
+    /*Con esta propiedad se agregó un borde superior de 20px que separa el letrero de las secciones*/
+    margin-right: 20px;
+    /*Con esta propiedad se aplicó un amrgen derecho que hace que el letrero se alinee con las 
+    secciones*/
+}
+
+/*PIE DE PÁGINA*/
+
+#footer {
+    /*Con esta regla CSS se establecieron los estilos del pie de página (Se agregó un clearfix en el html para que
+    si se aplicara el margen superior que se aplica en esta regla, porque con el float este margen no se aplica)*/
+    width: 100%;
+    /*Con esta propiedad se estableció que el ancho del pie de página será el 100% del body*/
+    margin: 0px auto;
+    /*Con esta propiedad se buscó centrar el pie de página (en realida no cmabia nada pues abarca el
+    100% del body, no hay forma de centrarlo)*/
+    text-align: center;
+    /*Con esta propiedad se centró el texto del pie de página*/
+    margin-top: 40px;
+    /*Con esta propiedad se agregó un magen superior de 40px para separar el pie de página del resto
+    de la página*/
+    background-color: #333333;
+    /*Con esta propiedad se estableció el color de fondo del pie de página*/
+    padding-top: 10px;
+    /*Con esta propiedad se agregó un pádding superior de 10px*/
+    padding-bottom: 10px;
+    /*Con esta propiedad se agregó un pading inferior de 10px*/
+    color: white;
+    /*Con esta propiedad se hizo que la letra del pie de página sea blanca*/
+    font-family: sans-serif;
+    /*Con esta propiedad se estableció el tiipo de fuente para el pie de página*/
+    font-size: 14px;
+    /*Con esta propiedad se estableció el tamaño de la letra del pie de página*/
+    box-shadow: 0px 0px 2px gray;
+    /*Con esta propiedad se agregó una sombra al pie de página*/
+}
