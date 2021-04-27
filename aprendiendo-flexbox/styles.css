@@ -31,6 +31,8 @@ body {
     padding: 5px;
 }
 
+/* Entonces con las cajas anteriores podemos ver que con las propiedades display: flex y display: inline-flex podemos escoger si queremos que la caja contenedora abarque el 100% del body o si queremos que se adapte 
+al contenido respectivamente (la caja al adaptarse se puede centrar utilizando un text-align:center)*/
 
 .caja {
     font-size: 20px;
