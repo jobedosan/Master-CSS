@@ -581,7 +581,7 @@ ambos, convirtiendose visualmente, la caja #search en el borde del input */
     font-size: 15px;
     font-family: "TrebuchetMS";
     font-weight: lighter;
-    /* Sino se elimina la propiedad display:block deberá aplicarse esta propiedad para que los botones se pongan uno al lado del otro, yo comenté el display:block */
+    /* Sino se elimina la propiedad display:block deberá aplicarse un float: left para que los botones se pongan uno al lado del otro, yo comenté el display:block */
     /*float: left;*/
     margin-left: 17px;
     /* Victor no agrega esto pero yo lo agregué para que los letreros si queden centrados por completo porque anteriormente se aplicaorn estilos al botón submit y había un padding de 6px*/
