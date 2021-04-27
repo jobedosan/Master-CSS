@@ -9,13 +9,14 @@ body {
     /* Esta es la propiedad que se aplica para trabajar con flexbox, hace lo mismo que el float left, a diferencia de que el contenedor si capta el tamaño de los elementos que contiene sin necesidad de un clearfix.
     Entonces, al aplicar el display:flex los elementos contenidos se alinearán uno al lado del otro (flex solo actúa dentro de la caja de forma que no afecta al resto de elementos) */
     display: flex;
-    /* Se prueba estableciendo un ancho automático pero el ancho automático de los elementos con la propiedad inline-flex es del 100%, por eso al poner la propiedad width: 100% el tamaño no se adapta a los elementos
+    /* Para determinar si una caja con flexbox organiza los elementos vertical u horizontalmente se utiliza la propiedad flex-direction, dicha propiedad tiene row como valor
+    por defecto, dicho valor hacer que los elementos se organicen horizontalmente (se colocó la propiedad pero solo para verla copiada, no es necesaria para obtener ese resultado ya que es el valor por defecto).
+    Es importante resaltar que las cajas dentro del flexbox se adaptan a su contenido automáticamente, excepto cuando se usa el valor la propiedad en flex-direction:column o column-reverse y la propiedad 
+    display: flex, en dicho caso los elementos contenidos abarcar el 100% del elemento padre */
+    flex-direction: row;
+    /* Se prueba estableciendo un ancho automático pero el ancho automático de los elementos con la propiedad inline-flex es del 100%, por eso al poner la propiedad width: auto el tamaño no se adapta a los elementos
     que contiene */
     width: auto;
-
-
-
-
     border: 3px solid black;
     padding: 5px;
 }
@@ -24,15 +25,39 @@ body {
     /* Con este display se colocan los elementos uno al lado del otro, pero adicionalmente, la caja que contiene los elementos a organizar, se adapta a los mismos, su ancho se adapta automáticamente a lo que 
     contiene, incluso si agregamos más cajas, el contenedor con id layout2 se adapta al contenido */
     display: inline-flex;
+    /* La propiedad flex-direction con el valor column hace que la caja que contiene los elementos a organizar, organice los elementos como en una columna (verticalmente). En este caso la caja tiene la propiedad
+    display: inline-flex que hace que se adapte al contenido, pero si tuviera la propiedad display: flex, la columna junto a los elementos contenidos abarcarían el 100% del boddy  */
+    flex-direction: column;
+    margin-top: 25px;
+    border: 3px solid black;
+    padding: 5px;
+}
+
+#layout3 {
+    display: flex;
+    /* La propiedad flex-direction con el valor row-reverse hace que los elementos contenidos se ubiquen hacia la derecha y en orden inverso, por lo que quedan ahora las cajas organizadas de derecha a izquierda, todo 
+    lo contrarios de lo que se hace en la primera caja*/
+    flex-direction: row-reverse;
+    margin-top: 25px;
+    border: 3px solid black;
+    padding: 5px;
+}
+
+#layout4 {
+    /* Se aplicó la propiedad display con el valor flex para ver lo que se mencionó anteriormente, dicho display en conjunto con un flex-direction: column hace que los elementos internos abarquen el 100% del padre */
+    display: flex;
     /* Se prueba estableciendo un ancho automático pero el ancho automático de los elementos con la propiedad inline-flex es del 100%, por eso al poner la propiedad width: 100% el tamaño no se adapta a los elementos
     que contiene */
+    /* La propiedad flex-direction con el valor column-reverse hace que los elementos se organicen al revés, es decir de abajo a arriba */
+    flex-direction: column-reverse;
     margin-top: 25px;
     border: 3px solid black;
     padding: 5px;
 }
 
 /* Entonces con las cajas anteriores podemos ver que con las propiedades display: flex y display: inline-flex podemos escoger si queremos que la caja contenedora abarque el 100% del body o si queremos que se adapte 
-al contenido respectivamente (la caja al adaptarse se puede centrar utilizando un text-align:center)*/
+al contenido respectivamente (la caja al adaptarse se puede centrar utilizando un text-align:center), también pudimos ver cómo funciona la propiedad flex-direction y sus distintos valores. Hubo un valor que no se 
+mencionó y es el valor unset, este hace que no se aplique ni column ni row a flex-direction, es decir que hace que se quede con los valores por defecto*/
 
 .caja {
     font-size: 20px;
