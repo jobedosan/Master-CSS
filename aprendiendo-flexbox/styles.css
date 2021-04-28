@@ -3,6 +3,8 @@ body {
     text-align: center;
 }
 
+/* FLEX, INLINE-FLEX, FLEX-DIRECTION, COLUMN, ROW, ROW-REVERSE, COLUMN REVERSE */
+
 /* Para trabajar con flexbox se debe aplicar un display: flex a la caja que contiene los elementos que queremos organizar */
 
 #layout {
@@ -55,9 +57,22 @@ body {
     padding: 5px;
 }
 
+
+
 /* Entonces con las cajas anteriores podemos ver que con las propiedades display: flex y display: inline-flex podemos escoger si queremos que la caja contenedora abarque el 100% del body o si queremos que se adapte 
 al contenido respectivamente (la caja al adaptarse se puede centrar utilizando un text-align:center), también pudimos ver cómo funciona la propiedad flex-direction y sus distintos valores. Hubo un valor que no se 
 mencionó y es el valor unset, este hace que no se aplique ni column ni row a flex-direction, es decir que hace que se quede con los valores por defecto*/
+
+/* WRAP */
+
+#layout5 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+    border: 3px solid black;
+    padding: 5px;
+}
+
 
 .caja {
     font-size: 20px;
