@@ -94,6 +94,15 @@ column, etc.) y si tiene o no wrap (wrap o no wrap), deben copiarse en ese orden
     padding: 5px;
 }
 
+/* Esta caja se usó para probar el order de flexbox */
+#layout7 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+    border: 3px solid black;
+    padding: 5px;
+}
+
 
 .caja {
     font-size: 20px;
@@ -105,6 +114,8 @@ column, etc.) y si tiene o no wrap (wrap o no wrap), deben copiarse en ese orden
     margin: 10px;
     background-color: gray;
 }
+
+/* ORDER (ORDEN DE LOS ELEMENTOS) */
 
 .red {
     background-color: red;
@@ -120,4 +131,28 @@ column, etc.) y si tiene o no wrap (wrap o no wrap), deben copiarse en ese orden
 
 .orange {
     background-color: orange;
+}
+
+/* Estas clases las creé para aplicar la propiedad order (orden)*/
+
+/* La propiedad order establece el orden en que se presentan los elementos,el valor de esta propiedad debe se run número entero, sin embargo, se deben enumerar todos los 
+elementos para que se presente exactamente el orden que deseamos (no se si hay forma de cambiar el orden de forma correcta sin necesidad de numerar todo, no se ve bien en el 
+curso, pero lo buscaré). Es muy inportante tener en cuenta que al usar el la propiedad flex-direction:row el orden de los elementos es de izquierda a derecha, incluso cuando los
+reorganizamos y la misma propiedad con el valor row-reverse el orden de los elementos es de derecha a izquerda. En el caso de flex-direction:column los elementos se ordenaa de 
+arriba a abajo, incluso cuando los reorganizamos con order, y si se utiliza column-reverse, los elementos de ordenan de abajo a arriba */
+
+.caja1 {
+    order: 3;
+}
+
+.caja2 {
+    order: 1;
+}
+
+.caja3 {
+    order: 4;
+}
+
+.caja4 {
+    order: 2;
 }
