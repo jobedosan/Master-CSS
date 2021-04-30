@@ -104,6 +104,7 @@ column, etc.) y si tiene o no wrap (wrap o no wrap), deben copiarse en ese orden
 }
 
 
+
 .caja {
     font-size: 20px;
     font-weight: bold;
@@ -155,4 +156,98 @@ arriba a abajo, incluso cuando los reorganizamos con order, y si se utiliza colu
 
 .caja4 {
     order: 2;
+}
+
+/* FLEX-GROW */
+
+/* Creé esta caja para aplicar flex-grow */
+
+#layout8 {
+    display: flex;
+    flex-direction: row;
+
+    margin-top: 25px;
+    border: 3px solid black;
+    padding: 5px;
+}
+
+
+/* Ahora se estudiará una propiedad que hará que los elementos contenidos dentro de la caja con display:flex, sean de verdad flexibles, es decir, nos permitirá adaptar el tamaño
+de cada elemento contenido a como nos de la gana, dicha propiedad es flex-grow y se agrega a los elementos que son contenidos y no al contenedor como se hace con el resto de las 
+propiedades estudiadas hasta ahora, los valores de dicha propiedad son números enteros, y el valor más común es el número 1, con este valor se hace que todas las cajas ocupen el
+mismo espacio dentro del contenedor*/
+
+/* Hice esta clase para aplica el flex-grow */
+.grow {
+    /* Con este valor todos los elementos comparten el mismo espacio y se adaptan de mejor forma cuando se redimensiona la página */
+    flex-grow: 1;
+}
+
+/* Si se aplica flexgrow a cada cada y se le asigna un número distinto, se indica a cada caja qué tanto espacio pueden ocupar en el contenedor y el resto de las cajas
+se adaptarán a este cambio, se puede aplicar a un solo elemento, a varios o a todos. En el siguiente ejemplo se aplicará a todos */
+
+#layout9 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    border: 3px solid black;
+    padding: 5px;
+}
+
+/* Estas clases las creé para aplicar un flexgrow distintos a cada caja, en este caso las cajas van de pequeño a grande en el siguiente orden: caja cuatro, caja uno, caja tres
+y caja dos...entonces, el valor de flex-grow mientras más alto, implica un mayor tamaño del elemento, sin embargo, no importa que tan grande sea el valor, siempre se compartirá
+el espacio dentro del contenedor */
+
+.grow1 {
+    flex-grow: 3;
+}
+
+.grow2 {
+    flex-grow: 10;
+}
+
+.grow3 {
+    flex-grow: 7;
+}
+
+.grow4 {
+    flex-grow: 2;
+}
+
+/* FLEX-SHRINK */
+
+/* La propiedad flex-shrink se puede aplicar a algún elemento flexible para que, cuando se redimensione la página y se comiencen a encoger los elementos flexibles, dicho
+elemento con el flex-shrink se encoja más rápido al llegar a un punto extremo del redimensionamiento, es decir, cuando ya no haya espacio suficiente en el contenedor. El valor 
+por defecto de esta propiedad es 1, mientras mayor sea el número más rápido se reducirá el elemento al que se le aplicó dicha propiedad, como veremos en el siguiente ejemplo. 
+Si se aplica el valor 0, el elemento no se encoge cuando no haya espacio suficiente en el contenedor y el resto si. En resumen, esta propiedad nos permite establecer cómo se 
+encogerá un elemento específico al llegar al punto de redimensionamiento que se menciona anteriormente (Esta explicación la busqué por internet ya que Victor no lo explica bien,
+de todas formas está el curso de flexbox de John Mircha para consultar)*/
+
+#layout10 {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    margin-top: 25px;
+    border: 3px solid black;
+    padding: 5px;
+}
+
+/* En este caso, cuando se redimensiona la página a un tamaño más pequeño, cuando el contenedor se quede sin espacio, la primera caja se encogerá más rápido que el resto porque
+se le estableció un flex-shrink:2 y el valor por defecto es 1 */
+.shrink1 {
+    flex-shrink: 4;
+    flex-grow: 1;
+}
+
+.shrink2 {
+    flex-grow: 1;
+}
+
+.shrink3 {
+    flex-grow: 1;
+}
+
+.shrink4 {
+    flex-grow: 1;
 }
