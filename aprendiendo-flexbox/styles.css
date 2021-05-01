@@ -137,10 +137,11 @@ column, etc.) y si tiene o no wrap (wrap o no wrap), deben copiarse en ese orden
 /* Estas clases las creé para aplicar la propiedad order (orden)*/
 
 /* La propiedad order establece el orden en que se presentan los elementos,el valor de esta propiedad debe se run número entero, sin embargo, se deben enumerar todos los 
-elementos para que se presente exactamente el orden que deseamos (no se si hay forma de cambiar el orden de forma correcta sin necesidad de numerar todo, no se ve bien en el 
-curso, pero lo buscaré). Es muy inportante tener en cuenta que al usar el la propiedad flex-direction:row el orden de los elementos es de izquierda a derecha, incluso cuando los
-reorganizamos y la misma propiedad con el valor row-reverse el orden de los elementos es de derecha a izquerda. En el caso de flex-direction:column los elementos se ordenaa de 
-arriba a abajo, incluso cuando los reorganizamos con order, y si se utiliza column-reverse, los elementos de ordenan de abajo a arriba */
+elementos para que se presente exactamente el orden que deseamos, debemos poner valor -1 para que un solo elemento se coloque de primero y un valor 2 o mayor para que se coloque
+de último, pero solo fuciona a´si cuando un solo elemento tiene order, del resto se necesita cpalicar order a todos los elementos. Es muy inportante tener en cuenta que al usar 
+el la propiedad flex-direction:row el orden de los elementos es de izquierda a derecha, incluso cuando los reorganizamos y la misma propiedad con el valor row-reverse el orden 
+de los elementos es de derecha a izquerda. En el caso de flex-direction:column los elementos se ordenaa de arriba a abajo, incluso cuando los reorganizamos con order, y si se 
+utiliza column-reverse, los elementos de ordenan de abajo a arriba */
 
 .caja1 {
     order: 3;
@@ -234,7 +235,7 @@ de todas formas está el curso de flexbox de John Mircha para consultar)*/
 }
 
 /* En este caso, cuando se redimensiona la página a un tamaño más pequeño, cuando el contenedor se quede sin espacio, la primera caja se encogerá más rápido que el resto porque
-se le estableció un flex-shrink:2 y el valor por defecto es 1 */
+se le estableció un flex-shrink:4 y el valor por defecto es 1 */
 .shrink1 {
     flex-shrink: 4;
     flex-grow: 1;
