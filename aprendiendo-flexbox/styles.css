@@ -175,8 +175,8 @@ utiliza column-reverse, los elementos de ordenan de abajo a arriba */
 
 /* Ahora se estudiará una propiedad que hará que los elementos contenidos dentro de la caja con display:flex, sean de verdad flexibles, es decir, nos permitirá adaptar el tamaño
 de cada elemento contenido a como nos de la gana, dicha propiedad es flex-grow y se agrega a los elementos que son contenidos y no al contenedor como se hace con el resto de las 
-propiedades estudiadas hasta ahora, los valores de dicha propiedad son números enteros, y el valor más común es el número 1, con este valor se hace que todas las cajas ocupen el
-mismo espacio dentro del contenedor*/
+propiedades estudiadas hasta ahora, los valores de dicha propiedad son números enteros, y el valor por defecto es el número 1, con este valor se hace que todas las cajas ocupen 
+el mismo espacio dentro del contenedor*/
 
 /* Hice esta clase para aplica el flex-grow */
 .grow {
@@ -235,7 +235,8 @@ de todas formas está el curso de flexbox de John Mircha para consultar)*/
 }
 
 /* En este caso, cuando se redimensiona la página a un tamaño más pequeño, cuando el contenedor se quede sin espacio, la primera caja se encogerá más rápido que el resto porque
-se le estableció un flex-shrink:4 y el valor por defecto es 1 */
+se le estableció un flex-shrink:4 y el valor por defecto es 1. Mientras más alto el valor de shrink más rápido se encoge la caja con dicha propiedad, y también será mayor la
+diferencia entre la caja con shrink y el resto de cajas al momento en que estas últimas comiencen a encogerse ( y cuando la caja con shrink se haya encogido al máximo)*/
 .shrink1 {
     flex-shrink: 4;
     flex-grow: 1;
@@ -251,4 +252,35 @@ se le estableció un flex-shrink:4 y el valor por defecto es 1 */
 
 .shrink4 {
     flex-grow: 1;
+}
+
+/* FLEX-BASIS */
+
+/* La propiedad flex-basis representa el tamaño del elemento en la línea (si los elementos se ordenan en fila, flex-basis representará el ancho, y si los elementos se ordenan
+en columna, flex-basis representará el alto, en flex-box este elemento tiene más prioridad que width o height, incluso si width o height ganan en cascada). Víctor dice que es
+como establecer el ancho mínimo del elemento, el valor por defecto de esta propiedad es auto */
+
+#layout11 {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    margin-top: 25px;
+    border: 3px solid black;
+    padding: 5px;
+}
+
+.basis1 {
+    flex-basis: 25%;
+}
+
+.basis2 {
+    flex-basis: 25%;
+}
+
+.basis3 {
+    flex-basis: 25%;
+}
+
+.basis4 {
+    flex-basis: 25%;
 }
