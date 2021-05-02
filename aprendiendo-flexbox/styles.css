@@ -284,3 +284,7 @@ como establecer el ancho mínimo del elemento, el valor por defecto de esta prop
 .basis4 {
     flex-basis: 25%;
 }
+
+/* FUNCIÓN CALC */
+
+/* La función calc sirve para establecer el resultado de operaciones matemáticas como el valor de las propiedades */
