@@ -260,6 +260,7 @@ diferencia entre la caja con shrink y el resto de cajas al momento en que estas 
 en columna, flex-basis representará el alto, en flex-box este elemento tiene más prioridad que width o height, incluso si width o height ganan en cascada). Víctor dice que es
 como establecer el ancho mínimo del elemento, el valor por defecto de esta propiedad es auto */
 
+
 #layout11 {
     display: flex;
     flex-direction: row;
@@ -285,6 +286,68 @@ como establecer el ancho mínimo del elemento, el valor por defecto de esta prop
     flex-basis: 25%;
 }
 
-/* FUNCIÓN CALC */
+/* FUNCIÓN CALC (esto es en CSS plano, no es flexbox)*/
 
-/* La función calc sirve para establecer el resultado de operaciones matemáticas como el valor de las propiedades */
+/* La función calc sirve para establecer el resultado de operaciones matemáticas como el valor de las propiedades como se ve en el siguiente ejemplo*/
+
+/* En este caso es necesario agregar el wrap para que el flex-basis del 100% de la caja 4 se aplique correctamente, dibujándose debajo de las otras tres cajas, cuyo tamaño
+es el resultado de una operación matemática*/
+#layout12 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    border: 3px solid black;
+    padding: 5px;
+}
+
+.calc1 {
+    /* Aquí y en las siguientes reglas se usó una operación matemática como valor de flex-basis, utilizando así la función calc() */
+    flex-basis: calc((100% / 3) - 68px);
+}
+
+.calc2 {
+    flex-basis: calc((100% / 3) - 68px);
+}
+
+.calc3 {
+    flex-basis: calc((100% / 3) - 68px);
+}
+
+.calc4 {
+    flex-basis: 100%;
+}
+
+/* VARIABLES EN CSS (no forma parte de flex-box)*/
+
+/* En CSS existen las variables, estas deben crearse dentro d euna regla con un selecto :root obligatoriamente, cada variable se crea con dos guiones, el nombre de la variable 
+y el valor que contienen como se puede ver a continuación*/
+
+:root {
+    --aquamarin: aqua;
+}
+
+#layout13 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    border: 3px solid black;
+    padding: 5px;
+}
+
+/* Es importante mencionar que al aplicar flex-basis las cajas dejan de adaptarse tan bien como cuando tenían un flex-grow: 1; por lo que es necesario combinar la propiedad 
+flex-grow con flex-basis. flex-basis lo usamos para dar un tamaño epecífico a las cajas (un tamaño mínimo por decirlo así) y con flex-grow se permite su adaptación a pesar de 
+esa indicación del tamaño mínimo, a medida que se hagan más pequeñas las cajas se adaptarán mejor...se pueden comparar las cajas anteriores con estaa que si tendrá el flex-grow*/
+
+.var {
+    /* Para usar la variable como valor debe usarse la palabra var y entre paréntesis copiar el nombre de la variable antecedido de dos guiones, en este caso se cambió el color
+    de fondo de las últimas cajas por aquamarín, utilizando una variable, sin embargo, aunque existe estas variables en CSS, se termina escribiendo más que con el preprocesador */
+    background-color: var(--aquamarin);
+    /* Aquí se colocó el flex-grow, que permitirá que las cajas se adapten mejor, y estas cajas también tienen las medidas establecida con flex-basis porque comparten con las 
+    cajas anteriores la clase que creé que se llama calc1,2,3 y 4, pero como se puede ver, al hacer más pequeña la página, esta última caja se reduce mejor porque combina 
+    flex-basis y flex-grow. Es como si se estableciera el tamaño de las cajas y al hacerse demasiado pequeña, los elementos flexibles si cambian de tamaño tratando de cumplir 
+    con el flex-grow: 1 que establece que todas las cajas compartirán el mismo espacio...en este caso el 1 es suficiente, si se coloca un valor mayor nada cambiará por el 
+    flex-basis*/
+    flex-grow: 1;
+}
