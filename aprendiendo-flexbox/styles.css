@@ -353,17 +353,38 @@ esa indicación del tamaño mínimo, a medida que se hagan más pequeñas las ca
     flex-grow: 1;
 }
 
+
+/* ALINEACIÓN HORIZONTAL EN FLEXBOX */
+
+/* Para la alineación horizontal de los elementos en flexbox se utiliza una propiedad que se llama justify-content, esta propiedad se aplica al contenedor de los elementos
+flexibles. Si el valor es flex-end los elementos se justifican a la derecha; con flex-start se justifican a la izquierda (como están por defecto); con el valor center se 
+centran los elementos automáticamente; con el valor space-around los elementos se distribuyen uniformemente, dejándose un espacio entre todos los elementos y espacio entre el 
+primer elemento y el lado izquierdo de la caja contenedora y el último elemento y el lado derecho de la caja contenedora; el valor space-between hace que los elementos se sepa-
+ren entre sí, pero que el primer y último elemento se queden pegados al inicio (lado izquierdo) y final (lado derecho) de la caja contenedora respectivamente; también está el 
+valor space-evenly, que da un resultado similar a space-around, con la diferencia de que la distribución es más comprimida entre las cajas y el espacio del primer y último 
+elemento con el inicio y fin de la caja contenedora es más grande */
+
+#layout14 {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin-top: 25px;
+    border: 3px solid black;
+    padding: 5px;
+}
+
 /* ALINEACIÓN VERTICAL EN FLEXBOX */
 
 /* En flexbox se pueden alinear todos los elementos flexibles (elementos contenidos dentro del contenedor) con la propiedad align-items */
 
-#layout14 {
+#layout15 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 25px;
     border: 3px solid black;
     padding: 5px;
+    justify-content: space-evenly;
     /* Se dio esta altura al contenedor para poder ver cómo funciona la alineación vertical de flexbox*/
     height: 600PX;
     /* Esta es la propiedad que alínea verticalmente a los elementos, sin esta propiedad las cajas llegan a abarcar el 100% del alto. Con el valor baseline las cajas se adaptan
@@ -374,13 +395,14 @@ esa indicación del tamaño mínimo, a medida que se hagan más pequeñas las ca
 
 /* Se pueden alinear los elementos por separado también, para esto se utiliza la propiedad align-self en cada caja (para esto se créo la clase self1, 2, 3 y 4 ) */
 
-#layout15 {
+#layout16 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 25px;
     border: 3px solid black;
     padding: 5px;
+    justify-content: space-evenly;
     /* Se dio esta altura al contenedor para poder ver cómo funciona la alineación vertical de flexbox*/
     height: 600PX;
     /* Se colocó esto para que las cajas no se extendieran al 100% del contenedor vertticalmente, luego se sobreescribe su posición vertical con align-self */
@@ -410,7 +432,7 @@ esa indicación del tamaño mínimo, a medida que se hagan más pequeñas las ca
 /* Ahora se pondrá el ejemplo de la segunda caja centrada verticalmente al centro para ver la diferencia entre esto y el margen aplicado anteriormente al hacer más pequeña la
 página */
 
-#layout16 {
+#layout17 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
