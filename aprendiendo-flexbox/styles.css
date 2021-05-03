@@ -336,6 +336,7 @@ y el valor que contienen como se puede ver a continuación*/
     padding: 5px;
 }
 
+
 /* Es importante mencionar que al aplicar flex-basis las cajas dejan de adaptarse tan bien como cuando tenían un flex-grow: 1; por lo que es necesario combinar la propiedad 
 flex-grow con flex-basis. flex-basis lo usamos para dar un tamaño epecífico a las cajas (un tamaño mínimo por decirlo así) y con flex-grow se permite su adaptación a pesar de 
 esa indicación del tamaño mínimo, a medida que se hagan más pequeñas las cajas se adaptarán mejor...se pueden comparar las cajas anteriores con estaa que si tendrá el flex-grow*/
@@ -350,4 +351,97 @@ esa indicación del tamaño mínimo, a medida que se hagan más pequeñas las ca
     con el flex-grow: 1 que establece que todas las cajas compartirán el mismo espacio...en este caso el 1 es suficiente, si se coloca un valor mayor nada cambiará por el 
     flex-basis*/
     flex-grow: 1;
+}
+
+/* ALINEACIÓN VERTICAL EN FLEXBOX */
+
+/* En flexbox se pueden alinear todos los elementos flexibles (elementos contenidos dentro del contenedor) con la propiedad align-items */
+
+#layout14 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    border: 3px solid black;
+    padding: 5px;
+    /* Se dio esta altura al contenedor para poder ver cómo funciona la alineación vertical de flexbox*/
+    height: 600PX;
+    /* Esta es la propiedad que alínea verticalmente a los elementos, sin esta propiedad las cajas llegan a abarcar el 100% del alto. Con el valor baseline las cajas se adaptan
+    al contenido y se mantienen arriba, con center se adapta la caja al contenido y la centran verticalmente, con el valor flex-start también alínea las cajas hacia arriba y el
+    valor flex-end alínea las cajas abajo del contenedor */
+    align-items: center;
+}
+
+/* Se pueden alinear los elementos por separado también, para esto se utiliza la propiedad align-self en cada caja (para esto se créo la clase self1, 2, 3 y 4 ) */
+
+#layout15 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    border: 3px solid black;
+    padding: 5px;
+    /* Se dio esta altura al contenedor para poder ver cómo funciona la alineación vertical de flexbox*/
+    height: 600PX;
+    /* Se colocó esto para que las cajas no se extendieran al 100% del contenedor vertticalmente, luego se sobreescribe su posición vertical con align-self */
+    align-items: flex-start;
+}
+
+/* Víctor aplica un margen al segundo elemento para que se forme una especie de escalera entre los elementos, sin embargo también se muestra que */
+
+.self1 {
+    align-self: baseline;
+}
+
+.self2 {
+    /* Aquí se aplicó un margen pero no funciona bien cuando se hace la página más pequeña, es decir que se consigue la escalera pero no funciona bien la adaptación, aunque se
+    puede arreglar con media-queries. En este caso la caja 2 se desplaza en lugar de mantenerse adaptada como el resto   */
+    margin-top: 10%;
+}
+
+.self3 {
+    align-self: center;
+}
+
+.self4 {
+    align-self: flex-end;
+}
+
+/* Ahora se pondrá el ejemplo de la segunda caja centrada verticalmente al centro para ver la diferencia entre esto y el margen aplicado anteriormente al hacer más pequeña la
+página */
+
+#layout16 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    border: 3px solid black;
+    padding: 5px;
+    /* Se dio esta altura al contenedor para poder ver cómo funciona la alineación vertical de flexbox*/
+    height: 600PX;
+    /* Se colocó esto para que las cajas no se extendieran al 100% del contenedor vertticalmente, luego se sobreescribe su posición vertical con align-self */
+    align-items: flex-start;
+}
+
+/* Es flex-grow agregado es para que las cajas compartan el mismo espacio */
+
+.self11 {
+    flex-grow: 1;
+    align-self: baseline;
+}
+
+.self22 {
+    flex-grow: 1;
+    /* Aquí se aplicó un la alineación con align-self en lugar del margen, no se consigue la escalera que quiso hacer Víctor pero si se adapta todo comod debe   */
+    align-self: center;
+}
+
+.self33 {
+    flex-grow: 1;
+    align-self: center;
+}
+
+.self44 {
+    flex-grow: 1;
+    align-self: flex-end;
 }
