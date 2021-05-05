@@ -186,7 +186,6 @@ que brinda flexbox */
 #footer .info {
     flex-grow: 1;
     order: 1;
-    margin-left: ;
     margin-left: 20px;
     color: #444;
 }
