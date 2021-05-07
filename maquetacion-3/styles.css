@@ -189,3 +189,79 @@ que brinda flexbox */
     margin-left: 20px;
     color: #444;
 }
+
+/* De aquí en adelante es el responsive */
+
+@media (max-width:1334px) {
+
+    #header {
+        /* Con esta propiedad se centró el logo que dice portafolio */
+        text-align: center;
+    }
+
+    /* Con estos estilos se evitó que el menú se fuera tan abajo */
+    #menu>ul {
+        margin-top: 20px;
+        /* Con flex-start se colocó el menú más arriba, antes estaba centrado verticalmente */
+        align-items: flex-start;
+        /* Y con esto se mantuvo un espacio entre los elementos ul del menú, pero más compacto */
+        justify-content: space-evenly;
+    }
+}
+
+@media (max-width:646px) {
+
+    #content {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    #aside {
+        margin-right: 0px;
+    }
+
+    #aside ul {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+
+    #aside ul li {
+        flex-grow: 1;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    /* Víctor no oclocó esto pero tuve que ponerlo porque en algún únto puse un margen (que no s esi el colocó) que impedía que se areglarán los elementos del aside igual que
+    a él */
+    #aside a {
+        margin: 0px;
+    }
+
+    .project {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+
+    #footer .logo {
+        flex-grow: 1;
+        order: 1;
+        flex-basis: 100%;
+        text-align: center;
+        margin: 0px;
+    }
+
+    #footer .info {
+        flex-grow: 1;
+        order: 2;
+        color: #444;
+        flex-basis: 100%;
+        text-align: center;
+        margin: 0px;
+    }
+}
