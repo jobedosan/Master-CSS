@@ -236,7 +236,7 @@ que brinda flexbox */
         margin-left: 5px;
     }
 
-    /* Víctor no oclocó esto pero tuve que ponerlo porque en algún únto puse un margen (que no s esi el colocó) que impedía que se areglarán los elementos del aside igual que
+    /* Víctor no colocó esto pero tuve que ponerlo porque en algún únto puse un margen (que no s esi el colocó) que impedía que se areglarán los elementos del aside igual que
     a él */
     #aside a {
         margin: 0px;
