@@ -1,0 +1,51 @@
+/* Lo primero a tener en cuenta sobre grid es que actuará dentro de un contenedor, parecido en parte a como ocurre con flexbox (pero solo en parte porque hay comportamientos diferentes) */
+
+body {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.layout {
+    border: 3px solid orangered;
+    padding: 10px;
+}
+
+.layout .caja {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    padding: 20px;
+    border: 4px solid #444;
+    /* Comenté esto porque Víctor lo borró ya que empleó más adelante una propiedad que remplaza a este margin en grid*/
+    /* margin: 10px; */
+}
+
+.layout .red {
+    background-color: red;
+}
+
+.layout .green {
+    background-color: green;
+}
+
+.layout .blue {
+    background-color: blue;
+}
+
+.layout .pink {
+    background-color: palevioletred;
+}
+
+
+/* En cada lugar en que se quiera que actúe grid, se debe colocar un display:grid, en este caso se aplicará al div con clase layout */
+.layout {
+    /* Esta propiedad es la que define el contenedor de grid. Al agregar esto se le da un poco más de espacio a los elementos, sin embargo es solo comportamiento de grid, no es la función de esta propiedad (al hacer
+    esto, los elementos no se ponen uno al lado del otro como pasa con display:flex). Antes había un margin de 10px, este se eliminó y al agregar esto no se forma ningún espaciado entre los elementos */
+    display: grid;
+    /* Con la propiedad grid-gap se establece el margen que debe haber entre los elementos del grid en general, solo a las filas o solo a las columnas. Es importante mencionar que el margen es entre los elementos, 
+    pero no entre los elementos contenidos y su contenedor (es decir no se forma una especia de padding) */
+    grid-gap: 10px;
+    /* Para hacer que un elemento se coloque uno al lado del otro se puede utiliza la propiedad grid-template-columns, dicha propiedad puede tener como valor una medida, y dicha medida será el ancho de la columna,
+    pero al definir dos columnas por ejemplo, los elementos contenidos por grid se distribuyen entre ambas columnas (los valores no se separan por comas) */
+    grid-template-columns: calc(50% - 10px) calc(50% - 10px);
+}
