@@ -20,9 +20,10 @@
 
 .nav {
     width: 100%;
-    height: 50px;
-    padding-top: 10px;
+    height: 70px;
     margin-bottom: 125px;
+    line-height: 70px;
+    background-color: #333;
 }
 
 .nav ul {
@@ -30,16 +31,18 @@
     list-style-type: none;
     font-family: fuente-principal;
     font-weight: lighter;
-    width: 630px;
+    width: 750px;
 }
 
 .nav ul li {
     float: left;
-    height: 50px;
+    height: 70px;
+    line-height: px;
 }
 
 .nav ul li a {
-    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
     display: block;
     color: white;
     text-decoration: none;
@@ -52,13 +55,32 @@
     transform: scale(1.1);
     text-shadow: 0px 0px 5px #ccc;
     opacity: 1;
+    animation: difuminado;
+    animation-duration: 200ms;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+
+}
+
+@keyframes difuminado {
+    0% {
+        filter: blur(0px);
+    }
+
+    50% {
+        filter: blur(1.5px);
+    }
+
+    100% {
+        filter: blur(0px);
+    }
 }
 
 /* ENCABEZADO DE LA PÁGINA */
 .header {
-    background-color: rgb(255, 125, 244);
+    background: rgb(255, 125, 244);
     height: 500px;
-    box-shadow: 0px -1px 10px black inset;
+    box-shadow: 0px -0.5px 4px black inset;
 }
 
 #header {
@@ -102,12 +124,12 @@
     text-align: center;
     font-family: fuente-principal;
     letter-spacing: 3px;
-    padding: 5px;
     min-height: 500px;
 }
 
 #content #aside h3 {
     font-size: 45px;
+    background-color: rgb(255, 125, 244);
 }
 
 #content #aside p img {
@@ -119,4 +141,8 @@
 
 #content #aside p {
     font-size: 30px;
+}
+
+form {
+    margin: 40px;
 }

@@ -5,12 +5,38 @@ body {
     font-family: sans-serif;
 }
 
-.layout {
+.layout,
+.layout2,
+.layout3,
+.layout4,
+.layout5,
+.layout6 {
     border: 3px solid orangered;
     padding: 10px;
 }
 
-.layout .caja {
+.layout3 {
+    margin-top: 40px;
+}
+
+.layout4 {
+    margin-top: 40px;
+}
+
+.layout5 {
+    margin-top: 40px;
+}
+
+.layout6 {
+    margin-top: 40px;
+}
+
+.layout .caja,
+.layout2 .caja,
+.layout3 .caja,
+.layout4 .caja,
+.layout5 .caja,
+.layout6 .caja {
     font-weight: bold;
     font-size: 20px;
     color: white;
@@ -39,13 +65,183 @@ body {
 
 /* En cada lugar en que se quiera que actúe grid, se debe colocar un display:grid, en este caso se aplicará al div con clase layout */
 .layout {
-    /* Esta propiedad es la que define el contenedor de grid. Al agregar esto se le da un poco más de espacio a los elementos, sin embargo es solo comportamiento de grid, no es la función de esta propiedad (al hacer
-    esto, los elementos no se ponen uno al lado del otro como pasa con display:flex). Antes había un margin de 10px, este se eliminó y al agregar esto no se forma ningún espaciado entre los elementos */
+    /* Esta propiedad es la que define el contenedor de grid. Al agregar esto aumentó un poco más el espacio entre los elementos, pero (inspeccionando los elementos) me di cuenta que es porque el colapsado de 
+    márgenes no se da en el contenedor de grid, el colapsado se da verticalmente y anteriormente se aplicó un margin top y bottom a cada elemento, al hacer esto el margen en realidad es de 10px porque se colapsa,
+    pero con la propiedad display grid se elimina el colapsado y si aparece el margin top y el margin bottom de cada elemento.Entonces es solo un comportamiento de grid con el margen que se agregó anteriormente a los
+    elementos internos, no es la función de esta propiedad como tal pero es parte de su comportamiento. Con esta propiedad los elementos no se ponen uno al lado del otro como pasa con display: flex. El margin que
+    se agregó anteriormente se comentó para que no se aplique y evitar espacios adicionales. Al hacer etso vemos que grid no tiene efecto alguno sobre los elementos (en su aspecto visual)   */
     display: grid;
-    /* Con la propiedad grid-gap se establece el margen que debe haber entre los elementos del grid en general, solo a las filas o solo a las columnas. Es importante mencionar que el margen es entre los elementos, 
-    pero no entre los elementos contenidos y su contenedor (es decir no se forma una especia de padding) */
+    /* Con la propiedad  grid-gap se establece el margen que debe haber entre los elementos del grid en general, solo a las filas o solo a las columnas. Es importante mencionar que el margen es entre los elementos, 
+    pero no entre los elementos contenidos y su contenedor (es decir no se forma una especia de padding). También es destacable mencionar que con esta propiedad si se cumple el colapsado de márgenes, a diferencia
+    de los márgenes comunes que como mencionamos antes, dejan de colapsars dentro del grid */
     grid-gap: 10px;
+}
+
+/* Crearé varios conjuntos de cajas para tener ejemplos de cad apropiedad, etso lo hago porque Víctor borra muchas modificaciones hechas y no me dejará claro todo lo que mencione al final */
+
+.layout2 .red2 {
+    background-color: red;
+}
+
+.layout2 .green2 {
+    background-color: green;
+}
+
+.layout2 .blue2 {
+    background-color: blue;
+}
+
+.layout2 .pink2 {
+    background-color: pink;
+}
+
+.layout2 {
+    display: grid;
     /* Para hacer que un elemento se coloque uno al lado del otro se puede utiliza la propiedad grid-template-columns, dicha propiedad puede tener como valor una medida, y dicha medida será el ancho de la columna,
     pero al definir dos columnas por ejemplo, los elementos contenidos por grid se distribuyen entre ambas columnas (los valores no se separan por comas) */
+
+    /* Con esta propiedad se hace que los elementos se pongan uno al lado del otro, sin embargo no automáticamente, se debe establecer un valor que sea el ancho de cada una de las columnas que queremos, es decir, cada
+    valor que coloquemos corresponderá al ancho de una columna, si colocamos un solo valor se crea una sola columna y los elementos se mueven por completo a dicha columna, si se clocan dos columnas los elementos de 
+    distribuirán automáticamente entre las dos columnas, y lo mismo pasará si se establecen 3 o 4 columnas */
+
+    /* Víctor establece dos columnas, pero como valor de ancho de cada columna establece el 50% del ancho menos 10px a través de la función calc, esta nos permite hacer calculos matemáticos y así el resultado de
+    dichos calculos será el valor de la propiedad, resta 10px porque con el grid-gap de 10px el ancho de los elementos sobrepasa al contenedor */
     grid-template-columns: calc(50% - 10px) calc(50% - 10px);
+    /* Esta propiedad antes espaciaba a los elementos entre sí verticalmente porque así estaban ubicados, pero cuando se ubican horizontalmente, la propiedad automáticamente los espacia tanto en vertical como en hori-
+    zontal, es decir que, lo que antes eran 10px de margin-bottom o magin-top ahora también son 10px de margin-left o margin-right */
+    grid-gap: 10px;
+    /* Víctor agrega un padding de 10px pero no hace nada, creo que es innecesario */
+    padding: 10px;
+}
+
+.layout3 .red3 {
+    background-color: red;
+}
+
+.layout3 .green3 {
+    background-color: green;
+}
+
+.layout3 .blue3 {
+    background-color: blue;
+}
+
+.layout3 .pink3 {
+    background-color: pink;
+}
+
+.layout3 {
+    display: grid;
+    /* En este ejemplo coloqué 4 columnas, es uno de los ejemplos que coloca Víctor. Comentaré la siguiente línea de código que funciona bien para minimizarla a través de otro valor que se puede agregar a la
+    propiedad grid-template-columns */
+    /* grid-template-columns: 25% 25% 25% 25%;*/
+
+    /* En la línea anterior se puede ver que repetimos 4 veces 25%, pero hay forma de simplificar etso par ano copiarlo una y otra vez. Esto de hace con el valor repeat y entre paréntesis se copia primero cuántas 
+    columnas se quiere, luego la medida que tendrá cada una (se puede copiar la medida con la función calc igualmente [queda´ria un paréntesis dentro de otro]), la cantidad de columnas y la medida deben separarse por 
+    una coma (,) */
+    /* grid-template-columns: repeat(4, calc(25% - 10px)); */
+
+    /* También se puede simplificar la medida de dos columnas solamente y copiar la medida de las columnas siguientes luego, como s epuede ver en la siguiente línea */
+    grid-template-columns: repeat(2, calc(25% - 10px)) 15% 35%;
+
+    grid-gap: 10px;
+    /* Víctor agrega un padding de 10px pero no hace nada, creo que es innecesario */
+    padding: 10px;
+}
+
+.layout4 .red4 {
+    background-color: red;
+}
+
+.layout4 .green4 {
+    background-color: green;
+}
+
+.layout4 .blue4 {
+    background-color: blue;
+}
+
+.layout4 .pink4 {
+    background-color: pink;
+}
+
+.layout4 {
+    display: grid;
+    /* Hay otra unidad que se llama fr (fracción) y esta si da un tamaño igual a todos los elementos sin que se salgan de la caja, los calcula automáticamente aunque se coloque el grid-gap, por lo que es
+    muy útil (comenté el ejemplo para mostrar la forma resumida). se puede ver la diferencia al compararlo con los ejemplo anteriores, todo queda perfectamente centrado */
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+
+    /* También se puede resumir esta unidad como se hizo anteriormente, con el valor repeat */
+    grid-template-columns: repeat(4, 1fr);
+
+    grid-gap: 10px;
+    /* Víctor agrega un padding de 10px pero no hace nada, creo que es innecesario */
+    padding: 10px;
+}
+
+/* Grid no solamente nos permite definir columnas, también nos permite definir filas para así crear una cuadrícula y un layout tal y como lo queremos. Hasta ahora hemos definido columnas, pero ahora aprenderemos
+a definir filas, en el último ejemplo hicimos dos columnas, ahora agregaremos una fila más, esto se hace a través de la propiedad grid-templates-rows */
+
+.layout5 .red5 {
+    background-color: red;
+}
+
+.layout5 .green5 {
+    background-color: green;
+}
+
+.layout5 .blue5 {
+    background-color: blue;
+}
+
+.layout5 .pink5 {
+    background-color: pink;
+}
+
+.layout5 {
+    display: grid;
+    /* Con esta propiedad habremos creado una tercera fila, en la que podremos distribuir los elementos, podemos ver todo esto si inspeccionamos el elemento y vamos a la pestaña que dice layout y seleccionamos
+    show line numbers (mostrar número de líneas) */
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    /* Víctor agrega un padding de 10px pero no hace nada, creo que es innecesario */
+    padding: 10px;
+}
+
+/* Con esa línea adicional también podemos incluir dos elmentos más como podremos ver en el siguiente ejemplo */
+
+.layout6 .red6 {
+    background-color: red;
+}
+
+.layout6 .green6 {
+    background-color: green;
+}
+
+.layout6 .blue6 {
+    background-color: blue;
+}
+
+.layout6 .pink6 {
+    background-color: pink;
+}
+
+.layout6 .yellow6 {
+    background-color: yellow;
+}
+
+.layout6 .violet6 {
+    background-color: violet;
+}
+
+.layout6 {
+    display: grid;
+    /* Con esta propiedad habremos creado una tercera fila, en la que podremos distribuir los elementos, podemos ver todo esto si inspeccionamos el elemento y vamos a la pestaña que dice layout y seleccionamos
+    show line numbers (mostrar número de líneas) */
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    /* Víctor agrega un padding de 10px pero no hace nada, creo que es innecesario */
+    padding: 10px;
 }
