@@ -10,10 +10,19 @@ body {
 .layout3,
 .layout4,
 .layout5,
-.layout6 {
+.layout6,
+.layout7,
+.layout8,
+.layout9,
+.layout10,
+.layout11,
+.layout12 {
+    width: 1200px;
+    margin: 0 auto;
     border: 3px solid orangered;
-    padding: 10px;
+    padding: 20px;
 }
+
 
 .layout3 {
     margin-top: 40px;
@@ -31,12 +40,48 @@ body {
     margin-top: 40px;
 }
 
+.layout7 {
+    margin-top: 40px;
+    height: 400px;
+}
+
+.layout8 {
+    margin-top: 40px;
+}
+
+.layout9 {
+    margin-top: 40px;
+    min-height: 400px;
+}
+
+.layout10 {
+    margin-top: 40px;
+    min-height: 400px;
+}
+
+.layout11 {
+    margin-top: 40px;
+    height: 600px;
+}
+
+.layout12 {
+    width: 64%;
+    margin-top: 40px;
+    height: 600px;
+}
+
 .layout .caja,
 .layout2 .caja,
 .layout3 .caja,
 .layout4 .caja,
 .layout5 .caja,
-.layout6 .caja {
+.layout6 .caja,
+.layout7 .caja,
+.layout8 .caja,
+.layout9 .caja,
+.layout10 .caja,
+.layout11 .caja,
+.layout12 .caja {
     font-weight: bold;
     font-size: 20px;
     color: white;
@@ -72,7 +117,7 @@ body {
     se agregó anteriormente se comentó para que no se aplique y evitar espacios adicionales. Al hacer etso vemos que grid no tiene efecto alguno sobre los elementos (en su aspecto visual)   */
     display: grid;
     /* Con la propiedad  grid-gap se establece el margen que debe haber entre los elementos del grid en general, solo a las filas o solo a las columnas. Es importante mencionar que el margen es entre los elementos, 
-    pero no entre los elementos contenidos y su contenedor (es decir no se forma una especia de padding). También es destacable mencionar que con esta propiedad si se cumple el colapsado de márgenes, a diferencia
+    pero no entre los elementos contenidos y su contenedor (es decir no se forma una especie de padding). También es destacable mencionar que con esta propiedad si se cumple el colapsado de márgenes, a diferencia
     de los márgenes comunes que como mencionamos antes, dejan de colapsars dentro del grid */
     grid-gap: 10px;
 }
@@ -237,11 +282,269 @@ a definir filas, en el último ejemplo hicimos dos columnas, ahora agregaremos u
 
 .layout6 {
     display: grid;
-    /* Con esta propiedad habremos creado una tercera fila, en la que podremos distribuir los elementos, podemos ver todo esto si inspeccionamos el elemento y vamos a la pestaña que dice layout y seleccionamos
-    show line numbers (mostrar número de líneas) */
+    /* Con esto de agregaron dos elementos más y se ocupó por completo la línea adicional. Si se agregan otros dos elementos más automáticamente se creará una cuarta fila. Si se eliminan dos elementos y se ordenan los cuatro elementos restantes en la primera línea, se organizarán solo allí y se mantendrán las otras dos filas vacías, porque se definieron como tal en el código */
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
-    /* Víctor agrega un padding de 10px pero no hace nada, creo que es innecesario */
+    /* bVíctor agrega un padding de 10px pero no hace nada, creo que es innecesario */
+    padding: 10px;
+}
+
+/* Se definieron tres filas utilizando repeat, pero también se pueden definir las filas con valores de porcentaje o pixeles, sin embargo, al hacer esto se estará estableciendo el alto que tendrá cada fila */
+
+.layout7 .red7 {
+    background-color: red;
+}
+
+.layout7 .green7 {
+    background-color: green;
+}
+
+.layout7 .blue7 {
+    background-color: blue;
+}
+
+.layout7 .pink7 {
+    background-color: pink;
+}
+
+.layout7 .yellow7 {
+    background-color: yellow;
+}
+
+.layout7 .violet7 {
+    background-color: violet;
+}
+
+.layout7 {
+    display: grid;
+    /* Aquí se estableció una alto del 50% (200px) a la primera fila y de 25% (100px) a la segunda y tercera fila. Esas son las medidas en pixeles porque establecimos un alto de 400px. En este caso los elementos aún se salen del contenedor debido al grid-gap, para arreglar esto se recurre a los media-queries. Al definir las filas con un tamaño específico, las cajas verticalmente se adaptan a lo que el espacio les da */
+    grid-template-rows: 50% 25% 25%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+/* También se pueden establecer distintas fracciones a cada fila y así se dará un tamaño automáticamente, además de que nunca se saldrán los elementos del contenedor aunque haya un grid-gap, porque el contenedor si se adapta al usar fracciones, quedando como en el siguiente ejemplo */
+
+.layout8 .red8 {
+    background-color: red;
+}
+
+.layout8 .green8 {
+    background-color: green;
+}
+
+.layout8 .blue8 {
+    background-color: blue;
+}
+
+.layout8 .pink8 {
+    background-color: pink;
+}
+
+.layout8 .yellow8 {
+    background-color: yellow;
+}
+
+.layout8 .violet8 {
+    background-color: violet;
+}
+
+.layout8 {
+    display: grid;
+    /* Aquí se estableció que las primeras dos filas ocuparán una fracción y la última 2 fracciones, es decir 25%, 25% y 50% respectivamente */
+    grid-template-rows: 1fr 1fr 2fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+/* En CSS grid también se pueden expandir las columnas, en este caso se expandirá la primera columna para que abarque el espacio de las dos columnas, es decir que el primer elemento abarcará la primera fila 
+por completo  */
+
+.layout9 .red9 {
+    background-color: red;
+    /* Para expandir una columna se utilizan dos propiedades, grid-column-start y grid-column-end, en las que se coloca como valor la línea en donde comienza la columna y la línea en que termina respectivamente,
+    se sabe el número de línea inspeccionando el elemento. Al hacer que el siguiente elemento abarque toda la fila, el siguiente elemento con el que compartía el espacio se mueve debajo, y automáticamente se crea
+    otra fila (la nueva fila se crea con los tamaños que hemos definido a elementos anteriores, es decir, una fila de 1fr en una de las dos columnas de 1fr)*/
+
+    /* Víctor menciona y demuestra que las cajas se adaptan si llegan a sobrepasar el tamaño del contenedor, manteniendo las fracciones equitativamente, pero sobrepasando el tamaño establecido para el contenedor 
+    porque se agregó una fila más (En algunos casos incluso saliéndose del contenedor). Víctor muestra un comportamiento extraño con la propiedad height y min-height, así es como se ve que las cajas se adaptan, pero 
+    no explica bien cómo, aunque si se ve la adaptación que se hace automáticamente. 
+    
+    Con min-height las cajas y el contenedor se hacen un poco más grandes, y es porque con dicha propiedad se establece el alto mínimo y no el máximo, mientras que con height mantienen su tamaño porque se estableció 
+    un alto como tal, aunque es un apoximado del alto máximo y mínimo pues dicha altura se sobrepasa con los elementos (si inspeccionamos, se ve) el elemento, sobrepasa lo establecido con height, y lo mismo pasa con 
+    el max-height. Si se agregan más elementos estos llegan a sobrepasar al contenedor al usar la propiedad height o max-height (con min-height no pasa esto pues no hay límite de altura). En resumen, si no se define 
+    un alto, el contenedor se adaptará a los elementos. Sin embargo se debe tener cuidado, cuando se definen fracciones y un alto expecífico, los elementos se centran bien con un padding etc. Pero los elementos 
+    llegan a salirse de su contenedor (en ese caso obviamente no se centran) y el alto no se cumple siempre, varias veces se sobrepasa la medida de alto establecida para el contenedor, con el siguiente ejemplo se ve 
+    cómo los elementos sobrepasan al contenedor si se cambia la propiedad min-height por height */
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.layout9 .green9 {
+    background-color: green;
+}
+
+.layout9 .blue9 {
+    background-color: blue;
+}
+
+.layout9 .pink9 {
+    background-color: pink;
+}
+
+.layout9 .yellow9 {
+    background-color: yellow;
+}
+
+.layout9 .violet9 {
+    background-color: violet;
+}
+
+.layout9 {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr) 3fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+/* Para hacer lo mismo de forma más resumida existe una propiedad que se llama grid-column y lo que se copia como su valor es la línea de inicio y la línea de final de la columna, ambos valores separados por un
+slash, como se verá en el siguiente ejemplo */
+
+/* Víctor al ir jugando con la expansión de las columnas va demostrando cómo se reorganizan los elementos, dejando claro que en realidad si el elemento sobrepasa las columnas, entonces se crea una nueva fila
+para posicionar el elemento con la extensión establecida (es decir que se moverá el elemento a donde quepa) */
+
+.layout10 .red10 {
+    background-color: red;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.layout10 .green10 {
+    background-color: green;
+}
+
+.layout10 .blue10 {
+    /* Esta es la propiedad para copiar de forma resumida la expansión de la columna */
+    grid-column: 2/4;
+    background-color: blue;
+}
+
+.layout10 .pink10 {
+    background-color: pink;
+    grid-column: 1/3;
+}
+
+.layout10 .yellow10 {
+    background-color: yellow;
+}
+
+.layout10 .violet10 {
+    background-color: violet;
+    grid-column: 1/4;
+}
+
+.layout10 {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr) 3fr;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+/* Así como se pueden expandir las columnas, también se hace con las filas y se hace a través de la propiedad grid-row-start y grid-row-end, o el shorthand grid-row */
+
+
+.layout11 .red11 {
+    background-color: red;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.layout11 .green11 {
+    /* Primero se hizo esto y se expandió la fila, haciendo que se corra la caja rosada (en el video de Víctor la caja verde no llega a expandirse por completo pero aquí se me presentó un problema distinto, si se
+    expandió la caja verde moviendo a la caja rosada, esto pasó teniéndo la propiedad min-height). Cambié min-height por max-height y todo se organizó a como lo tenía Víctor */
+    grid-row-start: 2;
+    grid-row-end: 6;
+    background-color: green;
+}
+
+.layout11 .blue11 {
+    grid-column: 2/4;
+    background-color: blue;
+}
+
+.layout11 .pink11 {
+    background-color: pink;
+    /* Se modificó la expansión de este elemento entre las columnas para que la caja verde si se expandiera hasta donde se quería, y así se adaptan el resto de las cajas al espacio disponbible (a nivel vertical 
+    también) */
+    grid-column: 2/3;
+
+    /* Aquí se extiende más la caja rosada, solo que se agregaron más filas para que fuera posible, sin dichas filas no sucede nada, solo se descuadra un poco más el posicionamiento de las cajas */
+    grid-row: 3 / 5;
+}
+
+.layout11 .yellow11 {
+    grid-row: 3/5;
+    background-color: yellow;
+}
+
+.layout11 .violet11 {
+    background-color: violet;
+    grid-column: 2/4;
+}
+
+.layout11 {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr) 3fr repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+/* Si se establece el tamaño del contenedor grid con porcentajes se hace responsive, aunque es obvio que igual habría que ajustar algunas cosas a medida que se haga más pequeña la pantalla, como se puede ver con
+el siguiente ejemplo, es exactamente la última caja solo que el tamñao se estableció como procentaje */
+
+.layout12 .red12 {
+    background-color: red;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.layout12 .green12 {
+    grid-row-start: 2;
+    grid-row-end: 6;
+    background-color: green;
+}
+
+.layout12 .blue12 {
+    grid-column: 2/4;
+    background-color: blue;
+}
+
+.layout12 .pink12 {
+    background-color: pink;
+    grid-column: 2/3;
+    grid-row: 3 / 5;
+}
+
+.layout12 .yellow12 {
+    grid-row: 3/5;
+    background-color: yellow;
+}
+
+.layout12 .violet12 {
+    background-color: violet;
+    grid-column: 2/4;
+}
+
+.layout12 {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr) 3fr repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
     padding: 10px;
 }
