@@ -1,0 +1,241 @@
+/* Aquí se hace la misma maquetación realizada anteriormente con flexbox, pero con grid */
+
+* {
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+#container {
+    width: 90%;
+    height: auto;
+    margin: 0px auto;
+    border: 1px solid rgba(225, 225, 226, 0.8);
+    box-shadow: 0px 0px 10px #ccc;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    min-height: 600px;
+}
+
+#header {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 68% 30%;
+    /* En este caso no importa el hecho de usar esto para centrar porque no hay color de fondo, si hubiera un fondo si se afectaría el diseño y tocaría usar flexbox */
+    align-items: center;
+    height: 120px;
+    border-bottom: 1px solid rgba(225, 225, 226, 0.8);
+}
+
+.logo {
+    font-family: Helvetica;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 35px;
+    padding: 10px;
+    margin-left: 20px;
+    color: black;
+    text-shadow: 1px 1px 0px #ccc;
+    text-transform: uppercase;
+}
+
+.logo h1 {
+    font-family: Helvetica;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 35px;
+}
+
+#menu {
+    height: 100%;
+    padding-right: 20px;
+}
+
+#menu>ul {
+    display: grid;
+    /* En este caso no importa el hecho de usar esto para centrar porque no hay color de fondo, si hubiera un fondo si se afectaría el diseño y tocaría usar flexbox */
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    /* Las siguientes dos propiedades las agregó Víctor pero no veo que afecte en nada, creo que son innecesarias */
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    list-style: none;
+}
+
+#menu a {
+    color: #444;
+    text-transform: uppercase;
+    padding: 15px;
+    transition: all 300ms;
+}
+
+#menu a:hover {
+    background-color: #ccc;
+    color: white;
+}
+
+#content {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* Con esto se separa la barra lateral de las cajas de proyecto */
+    grid-column-gap: 7px;
+}
+
+#projects {
+    align-items: start;
+    display: grid;
+    /* Víctor coloca columnas de 250px pero yo coloco de una fracción porque con mi monitor no se ven completamente llenos los 250px */
+    grid-template-columns: repeat(4, 1fr);
+    /* Victor también enseña otro valor que es auto-fill, este calcula automáticamente la cantidad de columnas, sin embargo como usé fracciones en lugar de los 250px no funciona bien, lo que hace con las fracciones
+    es expandirlas hasta cubrir el 100% de contenedor, en la siguiente línea s epuede ver cómo quedaría el código*/
+    /* grid-template-columns: repeat(auto-fill, 250px); */
+    grid-gap: 20px;
+    width: 100%;
+}
+
+.project {
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    margin-right: 20px;
+}
+
+.project img {
+    width: 100%;
+}
+
+
+#aside {
+    align-self: start;
+    margin-right: 30px;
+    padding: 15px;
+}
+
+#aside h2 {
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 100;
+    color: #444;
+    padding-bottom: 10px;
+    margin-bottom: 20;
+    border-bottom: 1px solid rgba(225, 225, 226, 0.8);
+    text-align: center;
+}
+
+#aside ul {
+    list-style: none;
+}
+
+#aside ul li {
+    padding-bottom: 20px;
+
+}
+
+#aside a {
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    display: block;
+    background-color: #eee;
+    color: #444;
+    text-transform: uppercase;
+    transition: all 300ms;
+}
+
+#aside a:hover {
+    background-color: #444;
+    color: #eee;
+}
+
+#footer {
+    display: grid;
+    grid-template-columns: 1fr 20%;
+    justify-content: start;
+    border-top: 1px solid rgba(225, 225, 226, 0.8);
+    height: 120px;
+    align-items: center;
+}
+
+#footer .logo {
+    opacity: 0.5;
+    text-align: left;
+    margin-right: 20px;
+}
+
+#footer .info {
+    margin-left: 20px;
+    color: #444;
+}
+
+/* Se hará un media query para aprender cómo se hacer con grid */
+
+@media (max-width: 784px) {
+
+    #header {
+        display: grid;
+        grid-template-columns: 100%;
+        align-items: center;
+        justify-content: center;
+        height: 140px;
+        padding-bottom: 20px;
+    }
+
+    #header h1 {
+        text-align: center;
+    }
+
+    #content {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-content: space-between;
+        grid-column-gap: auto;
+    }
+
+    #projects {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+
+    .project {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .project img {
+        width: 100%;
+    }
+
+    #aside {
+        margin: 0;
+    }
+
+    #aside ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+    }
+
+    #aside a {
+        margin: 0px;
+    }
+
+    #footer {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-content: start;
+        text-align: center;
+    }
+
+    #footer .logo {
+        text-align: center;
+    }
+}

@@ -7,7 +7,7 @@
     src: url("../CSS/fonts/nevis.eot");
     /*Este es el primer formarto de fuente que se agrega, si falla pasará al siguiente*/
     src: url("../CSS/fonts/nevis.eot?#iefix") format("embedded-opentype"),
-        /*En este sgeundo src se agregran varios url que 
+        /*En este segundo src se agregran varios url que 
     son el resto de opciones para tratar de cargar la fuente, se agregó la que falló al comienzo agregando ?#iefix pegado
     a la ruta del archivo, esto es una utilidad se usa para reparar el hecho de que el Internet Explorer no pueda cargar esa 
     primera opción, se usa para Internet Explorer (versiones viejas) u otros navegadores antiguos, además para tratar de 

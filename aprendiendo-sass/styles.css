@@ -69,7 +69,7 @@ elemento al que se aplica la regla CSS que anida al resto de reglas, es decir qu
   box-shadow: 0px 0px 5px black;
 }
 
-/* Dentro del paréntesis del mixin puedo colocar algún parámetro (variable) para que el mixin/función actué de forma diferente cuando yo quiera, porque al usarlo, cambiaré el valor de dichos parámetros como yo quiera
+/*Dentro del paréntesis del mixin puedo colocar algún parámetro (variable) para que el mixin/función actué de forma diferente cuando yo quiera, porque al usarlo, cambiaré el valor de dichos parámetros como yo quiera
 copiando el valor dentro del paréntesis al invocar el mixin, como se ve en el siguiente ejemplo (los parámetros reemplazan a los valores de las propiedades que conforman el mixin, no necesariamente deben reemplazar
 todos los valores, pero si deben emplearse todas las variables; se pueden emplear tantas veces como se quiera) */
 .listado2 {

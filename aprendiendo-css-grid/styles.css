@@ -5,6 +5,204 @@ body {
     font-family: sans-serif;
 }
 
+/* ----------------------------------EJERCICIO COMPLETO CON ÁREAS----------------------- */
+
+/* Para la maquetación por áreas se borrrarán las columnas establecidas para los elementos como tal y de establecerán solo en el contenedor */
+#website-areas * {
+    margin: 0px;
+    padding: 0px;
+}
+
+#website-areas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 150px 70px 1fr 70px;
+    width: 75%;
+    height: 1000px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    /* Aquí se establecen las áreas, se establecen según la cantidad de filas y columnas, cada par de comillas representa una fila y dentro de ellas cada valor es una columna, luego se establece un nombre de área 
+    para cada elemento a través de la propiedad grid-area  */
+    grid-template-areas:
+        /* Víctor se pone a cambiar los elementos de lugar para ver lo fácil que es move run elemento a otro lado, lo cual es de mucha ayuda cuando se quiere hacer repsonsive porque se puede cambiar un elemento de 
+        lugar haciendo que abarque las columnas o filas que queramos sin problema alguno */
+        /* "cabecera cabecera cabecera cabecera cabecera "
+        "menu menu menu menu menu"
+        "contenido contenido contenido contenido lateral"
+        "pie pie pie pie pie"
+    ; */
+
+        "cabecera cabecera cabecera cabecera cabecera"
+        "menu menu menu menu menu"
+        "lateral contenido contenido contenido contenido"
+        "pie pie pie pie pie "
+    ;
+
+    /* Antes se había visto la propiedad grid-gap que se usa para poner un margen general entre los elementos, pero también existe la posibilidad de poner un marge solo a las columnas o solo a las filas, ára esto 
+    se usa grid-column-gap o grid-row-gap respectivamente */
+
+    /* grid-column-gap: 20px; */
+    /* grid-row-gap: 20px; */
+
+}
+
+
+#website-areas #cabecera {
+    /* Con esta propiedad se establece el nombre del área */
+    grid-area: cabecera;
+    display: flex;
+    /* Esto centra verticalmente */
+    align-items: center;
+    /* Esto centra horizontalmente */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: blue;
+}
+
+#website-areas #menu {
+    grid-area: menu;
+    background-color: lightblue;
+    color: black;
+    line-height: 70px;
+}
+
+#website-areas #menu ul {
+    /* Con esto se hizo un grid al ul y se organizaron los elementos horizontalmente */
+    display: grid;
+    /* Víctor muestra que mientras más columnas se hacen más se unen los elementos del menú, por eso aumentó la cantidad de columnas, depsués es cuestión de colocar los elementos en donde queramos */
+    grid-template-columns: repeat(9, 1fr);
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+#website-areas #contenido {
+    grid-area: contenido;
+    /* Se pueden crear grids dentro de otros gris para organizar los elementos internos del elemento, se hace con las siguiente propiedades y en el ul del menú */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+    padding: 20px;
+    background-color: #eee;
+}
+
+#website-areas #contenido article {
+    background-color: #ccc;
+    border: 1px solid #555;
+}
+
+#website-areas #lateral {
+    grid-area: lateral;
+    background-color: orange;
+    color: white;
+    /* Al agregar un margin a un elemento dentro de grid, este se termina haciendo más pequeño porqu en realidad el elemento ya tiene un área establecida para abarcarla */
+    /* margin-top: 20px; */
+}
+
+#website-areas #pie-pagina {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: pie;
+    background-color: black;
+    color: white;
+}
+
+/* ----------------------------------EJERCICIO COMPLETO------------------------- */
+
+#website * {
+    margin: 0px;
+    padding: 0px;
+}
+
+#website {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 150px 70px 1fr 70px;
+    width: 75%;
+    height: 1000px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+
+    /* Ya se ha visto que para centrar los textos horizontalmente se usa la propiedad text-align, sin embargo para centrar los elementos verticalmente se utiliza una propiedad que ya vimos 
+    en flexbox, se usa align-items, sin embargo al hacer esto no se centra solo el contenido, sino la caja por completo, haciendo que se comprima (se hace más pequeña verticalmente) */
+    /* align-items: center; */
+
+    /* También es posible utilizar la propiedad justify-content, aunque en este caso no se produce ningún cambio con ninguna de las propiedades */
+
+}
+
+
+#website #cabecera {
+    /* Víctor al establecer un valor a align-items, muestra que los elementos se hacen más pequeños verticalmente y muestra que al hacer de un tamaño determinado un contenedor, el letrero no se centra a pesar de 
+    align-items y el tamaño que si se establece */
+    /* height: 150px; */
+    /* También se puede utilizar la propiedad align-self para un elemento en específico, pero ocurre lo mismo, el elemento se hace más pequeño verticalmente */
+    /* align-self: center; */
+
+    /* Por lo que se ha mostrado anteriormente, Víctor muestra que no es factible usar esas propiedades porque al final no se alínea como queremos, por lo que se usará flexbox para centrar correctamente sin que se
+    haga más pequeña la caja  */
+
+    display: flex;
+    /* Esto centra verticalmente */
+    align-items: center;
+    /* Esto centra horizontalmente */
+    justify-content: center;
+    align-items: center;
+    grid-column: 1 / 6;
+    color: white;
+    background-color: blue;
+}
+
+#website #menu {
+    grid-column: 1 / 6;
+    background-color: lightblue;
+    color: black;
+    line-height: 70px;
+}
+
+#website #menu ul {
+    /* Con esto se hizo un grid al ul y se organizaron los elementos horizontalmente */
+    display: grid;
+    /* Víctor muestra que mientras más columnas se hacen más se unen los elementos del menú, por eso aumentó la cantidad de columnas, depsués es cuestión de colocar los elementos en donde queramos */
+    grid-template-columns: repeat(9, 1fr);
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+#website #contenido {
+    /* Se pueden crear grids dentro de otros gris para organizar los elementos internos del elemento, se hace con las siguiente propiedades y en el ul del menú */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+    padding: 20px;
+    grid-column: 1 / 5;
+    background-color: #eee;
+}
+
+#website #contenido article {
+    background-color: #ccc;
+    border: 1px solid #555;
+}
+
+#website #lateral {
+    /* Esto se agregó para que el aside se mantenga allí y no s emueva con los cambios que se hagan luego */
+    grid-column: 5 / 6;
+    background-color: orange;
+    color: white;
+}
+
+#website #pie-pagina {
+    grid-column: 1 / 6;
+    background-color: black;
+    color: white;
+}
+
+/* -------------------------------EJEMPLOS-------------------------------------- */
 .layout,
 .layout2,
 .layout3,
@@ -272,8 +470,8 @@ a definir filas, en el último ejemplo hicimos dos columnas, ahora agregaremos u
     background-color: pink;
 }
 
-.layout6 .yellow6 {
-    background-color: yellow;
+.layout6 .gold6 {
+    background-color: gold;
 }
 
 .layout6 .violet6 {
@@ -308,8 +506,8 @@ a definir filas, en el último ejemplo hicimos dos columnas, ahora agregaremos u
     background-color: pink;
 }
 
-.layout7 .yellow7 {
-    background-color: yellow;
+.layout7 .gold7 {
+    background-color: gold;
 }
 
 .layout7 .violet7 {
@@ -343,8 +541,8 @@ a definir filas, en el último ejemplo hicimos dos columnas, ahora agregaremos u
     background-color: pink;
 }
 
-.layout8 .yellow8 {
-    background-color: yellow;
+.layout8 .gold8 {
+    background-color: gold;
 }
 
 .layout8 .violet8 {
@@ -395,8 +593,8 @@ por completo  */
     background-color: pink;
 }
 
-.layout9 .yellow9 {
-    background-color: yellow;
+.layout9 .gold9 {
+    background-color: gold;
 }
 
 .layout9 .violet9 {
@@ -438,8 +636,8 @@ para posicionar el elemento con la extensión establecida (es decir que se mover
     grid-column: 1/3;
 }
 
-.layout10 .yellow10 {
-    background-color: yellow;
+.layout10 .gold10 {
+    background-color: gold;
 }
 
 .layout10 .violet10 {
@@ -487,9 +685,9 @@ para posicionar el elemento con la extensión establecida (es decir que se mover
     grid-row: 3 / 5;
 }
 
-.layout11 .yellow11 {
+.layout11 .gold11 {
     grid-row: 3/5;
-    background-color: yellow;
+    background-color: gold;
 }
 
 .layout11 .violet11 {
@@ -531,9 +729,9 @@ el siguiente ejemplo, es exactamente la última caja solo que el tamñao se esta
     grid-row: 3 / 5;
 }
 
-.layout12 .yellow12 {
+.layout12 .gold12 {
     grid-row: 3/5;
-    background-color: yellow;
+    background-color: gold;
 }
 
 .layout12 .violet12 {

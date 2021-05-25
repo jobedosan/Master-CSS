@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Aprendiendo Bootstrap con Víctor Robles</title>
+    <!-- Con esto ya se cambió la fuente del texto -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+    <!-- Para trabajar con bootstrap entonces se necesita fichero css y dos ficheros js y al tenerlos enlazados ya se podrán utilizar componentes de bootstrap -->
+    <!-- <div class="mi-web w-75 mt-lg-5  p-5 border m-auto border-danger">
+        <h1>Aprendiendo Bootstrap con Víctor Robles WEB</h1>
+        <h2>Bienvenido a las clases de este framework para CSS</h2>
+        <button class="btn-success">Hola soy un botón</button>
+    </div> -->
+
+    <!-- La clase container crea un contenedor que está centrado y con border se establec eun borde  -->
+    <div class="container border">
+        <!-- Con la clase row se crean filas en bootstrap -->
+        <div class="row">
+            <!-- Con la clase col- (col de column) se crean columnas, pero debe completarse con el número de columnas que se quiere (máximo doce), quedando así col-12 si se quieren abarcar todas las columnas. También se puede 
+                aplicar un color de fondo a través de las clases de bootstrap, para eso se usa la clase bg- (bg de background) y el color que se quiere según las clases de bootstrap también, primary por ejemplo que es un color azul
+            en bootstrap, con la clase text white se cambia el tetxo a color blanco (hay un montón de clases, pero deben buscarse en la documentación). Con la clase p- (p de padding) se agrega el padding al elemento,
+        pero debe completarse la clase con el número de padding que se desea (llega hasta 5, cada número es una medida expecífica que hay que revisar en la documentación)-->
+            <header id="header" class="col-12 bg-primary text-white">
+                <h1>Aprendiendo Bootstrap con Víctor Robles WEB</h1>
+
+                <nav id="menu" class="col-6 bg-secondary text-white">
+                    <ul>
+                        <li>Inicio</li>
+                        <li>Página 1</li>
+                        <li>Página 2</li>
+                        <li>Página 3</li>
+                        <li>Contacto</li>
+                    </ul>
+                </nav>
+
+                <!-- <nav id="menu" class="col-6 bg-success text-white">
+                    <ul>
+                        <li>Inicio</li>
+                        <li>Página 1</li>
+                        <li>Página 2</li>
+                        <li>Página 3</li>
+                        <li>Contacto</li>
+                    </ul>
+                </nav> -->
+
+
+            </header>
+        </div>
+    </div>
+
+
+
+    <!-- Sin esto bootstrap 4 no funciona, necesita de jquery -->
+    <script type="text/javascript" src="./jquery/jquery-3.6.0.min.js"></script>
+    <!-- Aquí se carga todo el javascript de bootstrap porque es lo que nos permite trabajar con los elementos que ya vienen predefinidos con javascript y las cosas que usan
+        jquery -->
+    <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

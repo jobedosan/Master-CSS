@@ -78,7 +78,9 @@
 
 /* ENCABEZADO DE LA PÁGINA */
 .header {
-    background: rgb(255, 125, 244);
+    background-image: linear-gradient(35deg, #4ab29e 0, #3eb2a7 3.33%, #33b2af 6.67%, #2ab2b8 10%, #23b2c0 13.33%, #23b1c7 16.67%, #2ab0ce 20%, #35aed3 23.33%, #42acd8 26.67%, #50aadc 30%,
+            #5fa8de 33.33%, #6da6e0 36.67%, #7ba3e0 40%, #89a0df 43.33%, #969ddc 46.67%, #a29ad9 50%, #ad97d4 53.33%, #b894cf 56.67%, #c191c9 60%, #c98fc1 63.33%, #d08cba 66.67%, #d68bb2 70%,
+            #da8aa9 73.33%, #dd89a1 76.67%, #df8998 80%, #df8a90 83.33%, #df8b87 86.67%, #dd8c80 90%, #da8f79 93.33%, #d69172 96.67%, #d1946d 100%);
     height: 500px;
     box-shadow: 0px -0.5px 4px black inset;
 }
@@ -132,7 +134,9 @@
 
 #content #aside h3 {
     font-size: 45px;
-    background-color: rgb(255, 125, 244);
+    background-image: linear-gradient(35deg, #4ab29e 0, #3eb2a7 3.33%, #33b2af 6.67%, #2ab2b8 10%, #23b2c0 13.33%, #23b1c7 16.67%, #2ab0ce 20%, #35aed3 23.33%, #42acd8 26.67%, #50aadc 30%,
+            #5fa8de 33.33%, #6da6e0 36.67%, #7ba3e0 40%, #89a0df 43.33%, #969ddc 46.67%, #a29ad9 50%, #ad97d4 53.33%, #b894cf 56.67%, #c191c9 60%, #c98fc1 63.33%, #d08cba 66.67%, #d68bb2 70%,
+            #da8aa9 73.33%, #dd89a1 76.67%, #df8998 80%, #df8a90 83.33%, #df8b87 86.67%, #dd8c80 90%, #da8f79 93.33%, #d69172 96.67%, #d1946d 100%);
     border-radius: 10px 10px 0px 0px;
 }
 
@@ -148,6 +152,7 @@
 }
 
 #content #articles {
+
     font-family: fuente-principal;
     float: left;
     width: calc(80% - 40px);
@@ -155,14 +160,27 @@
 }
 
 #content #articles #article {
+    border-radius: 10px;
     margin-bottom: 20px;
+    box-shadow: 0px 0px 4px 3px #ccc;
+
 }
 
 #content #articles #article h3 {
-    background-color: rgb(255, 125, 244);
+    background-image: linear-gradient(35deg, #4ab29e 0, #3eb2a7 3.33%, #33b2af 6.67%, #2ab2b8 10%, #23b2c0 13.33%, #23b1c7 16.67%, #2ab0ce 20%, #35aed3 23.33%, #42acd8 26.67%, #50aadc 30%,
+            #5fa8de 33.33%, #6da6e0 36.67%, #7ba3e0 40%, #89a0df 43.33%, #969ddc 46.67%, #a29ad9 50%, #ad97d4 53.33%, #b894cf 56.67%, #c191c9 60%, #c98fc1 63.33%, #d08cba 66.67%, #d68bb2 70%,
+            #da8aa9 73.33%, #dd89a1 76.67%, #df8998 80%, #df8a90 83.33%, #df8b87 86.67%, #dd8c80 90%, #da8f79 93.33%, #d69172 96.67%, #d1946d 100%);
     border-radius: 10px 10px 0px 0px;
+    padding-left: 10px;
 }
 
-form {
-    margin: 40px;
+#pie-de-pagina {
+    text-align: center;
+    height: 30px;
+    justify-content: center;
+    background-color: #333;
+    color: white;
+    font-size: 25px;
+    font-family: fuente-principal;
+    line-height: 30px;
 }

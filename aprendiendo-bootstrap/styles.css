@@ -1,0 +1,16 @@
+/* Para usar bootstrap se descargó una versión compilada del CSS y JS de bootstrap y se colocó en la misma carpeta del proyecto (tuve que instalar la versión 4 de bootstrap y
+jquery porque  con eso funciona, sin embargo, bottstrap 5 no es compatible con jquery)*/
+
+/* Víctor comienza a explicas  lo de las columnas y filas en bootstrap, pero para eso fue a la página oficial y leyendo la documentación se ve que hay distintos tamaños ya establecidos para las columnas,
+además de que el grid de bootstrap tiene un total de 12 columnas, es decir que podemos expandir los elementos entre esas doce columnas, o recolocarlos como queramos en función de las columnas que tenemos */
+
+/* #header {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#menu ul {
+    margin-bottom: 0px;
+} */
+
+/* ESTE APARTADO NO LO CONTINUÉ PORQUE YA SALIÓ BOOTSTRAP 5 HACE ALGÚN TIEPO, VÍCTOR TRABAJA BOOTSTRAP 4, OSEA QUE ESTO ESTÁ DESACTUALIZADO */
